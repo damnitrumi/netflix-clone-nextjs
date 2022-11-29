@@ -1,0 +1,29 @@
+import styled, { css } from "styled-components";
+
+export const Wrapper = styled.div`
+  ${() => css`
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    > div{
+      height: 733px;
+      position: relative;
+    }
+    img{
+      height: 100%;
+      width: 100%;
+    }
+  `}
+`;
+
+export const Background = styled.div`
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  background-image: linear-gradient(0deg,rgba(0,0,0,.8) 0,transparent 60%,rgba(0,0,0,.8));
+`;

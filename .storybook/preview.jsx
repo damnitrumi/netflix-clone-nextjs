@@ -6,15 +6,15 @@ import '../public/assets/fonts/styles.css';
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   backgrounds: {
-    default: 'light',
+    default: 'dark',
     values: [
       {
         name: 'light',
-        value: theme.colors.white,
+        value: '#FFF',
       },
       {
         name: 'dark',
-        value: theme.colors.primaryColor,
+        value: '#000',
       },
     ],
   },

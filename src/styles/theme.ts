@@ -1,9 +1,9 @@
 export const theme = {
   colors: {
-    primaryColor: "#0A1128",
-    secondaryColor: "#dc143c",
-    white: "#FFFFFF",
-    mediumGray: "#DDDDDD",
+    netflixMainColor: "#e50914",
+    netflixHoverColor: "#f40612",
+    netflixTextColor: "#FFFFFF",
+    netflixBackGround: "black",
   },
   font: {
     family: {
@@ -22,7 +22,7 @@ export const theme = {
     },
   },
   media: {
-    lteMedium: "(max-width: 768px)",
+    ltaMedium: "(max-width: 768px)",
   },
   spacings: {
     xsmall: "8rem",
@@ -33,5 +33,9 @@ export const theme = {
     xxlarge: "4.8rem",
     huge: "5.6rem",
     xhuge: "6.4rem",
+  },
+  fixedMeasures: {
+    mainPadding: "4.5rem 7.0rem",
+    introMainBorder: "0.8rem solid #222",
   },
 } as const;
