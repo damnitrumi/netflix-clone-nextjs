@@ -16,13 +16,11 @@ export const HeadingsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-bottom: 4px;
+  padding-right: 20px;
 `;
 
 export const ImageContainer = styled.div`
   overflow: hidden;
-  margin-right: -2.5%;
-  margin-top: -5%;
   flex-basis: 1140px;
   position: relative;
   img{
@@ -31,19 +29,19 @@ export const ImageContainer = styled.div`
   }
 `;
 
-export const VideoContainer = styled.div`
-  height: 100%;
-  width: 100%;
-  max-height: 70%;
-  max-width: 72.6%;
-  position: absolute;
-  top: 48%;
-  left: 49.6%;
-  transform: translate(-50%,-50%);
-  z-index: 1;
+// export const VideoContainer = styled.div`
+//   height: 100%;
+//   width: 100%;
+//   max-height: 70%;
+//   max-width: 72.6%;
+//   position: absolute;
+//   top: 48%;
+//   left: 49.6%;
+//   transform: translate(-50%,-50%);
+//   z-index: 1;
 
-  video{
-    width: 100%;
-    height: 100%;
-  }
-`;
+//   video{
+//     width: 100%;
+//     height: 100%;
+//   }
+// `;

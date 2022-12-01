@@ -14,5 +14,6 @@ ${({ size, as }) => css`
   color: white;
   ${pickSize(size)}
   font-weight: ${as == "h1" ? 500 : 400};
+  ${as == "h1" && css`font-family: Netflix-Medium`}
 `}
 `;

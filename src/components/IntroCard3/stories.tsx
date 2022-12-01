@@ -1,15 +1,15 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
-import { IntroCard1 } from ".";
+import { IntroCard3 } from ".";
 
 export default {
-  title: "IntroCard1",
-  component: IntroCard1,
+  title: "IntroCard3",
+  component: IntroCard3,
 } as Meta;
 
 export const Template: Story = (args) => {
   return (
     <div>
-      <IntroCard1 {...args} />
+      <IntroCard3 {...args} />
     </div>
   );
 };

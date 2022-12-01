@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: row-reverse;
     gap: 20px;
     margin: 0 auto;
   `}
@@ -17,13 +18,14 @@ export const HeadingsContainer = styled.div`
   flex-direction: column;
   gap: 15px;
   margin-bottom: 4px;
+  padding-left: 25px;
 `;
 
 export const ImageContainer = styled.div`
   overflow: hidden;
-  margin-right: -2.5%;
-  margin-top: -5%;
-  flex-basis: 1140px;
+  margin-left: -4.6%;
+  margin-top: -2.2%;
+  flex-basis: 555px;
   position: relative;
   img{
     position: relative;
@@ -35,10 +37,10 @@ export const VideoContainer = styled.div`
   height: 100%;
   width: 100%;
   max-height: 70%;
-  max-width: 72.6%;
+  max-width: 61%;
   position: absolute;
-  top: 48%;
-  left: 49.6%;
+  top: 34%;
+  left: 49.4%;
   transform: translate(-50%,-50%);
   z-index: 1;
 
