@@ -18,13 +18,17 @@ export const parameters = {
       },
     ],
   },
+  layout: "fullscreen"
+
 };
 
 export const decorators = [
   (Story) => (
     <ThemeProvider theme={theme}>
-      <Story />
-      <GlobalStyles />
+      <div style={{height: '200vh'}}>
+        <Story />
+        <GlobalStyles />
+      </div>
     </ThemeProvider>
   ),
 ];

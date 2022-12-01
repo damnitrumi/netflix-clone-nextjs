@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
+    padding-top: 28px;
     span{
       display: block;
       flex: 1;
@@ -13,8 +14,11 @@ export const Wrapper = styled.div`
     }
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin: 0 5.6rem;
+    /* max-width: 1471px;
+    margin: 0 auto; */
+    margin-bottom: 102px;
   `}
 `;
 
@@ -29,6 +33,10 @@ export const OptionsContainer = styled.div`
 export const SelectContainer = styled.div`
   ${({ theme }) => css`
     position: relative;
+    border-radius: 5px;
+    border: 1px solid rgba(170,170,170);
+
+
 
     label{
       width: 1px;
@@ -46,8 +54,8 @@ export const SelectContainer = styled.div`
       background-size: contain;
       background-position: center;
       position: absolute;
-      left: .4px;
-      top: 9px;
+      left: 5px;
+      top: 8px;
       pointer-events: none;
     }
 
@@ -58,8 +66,8 @@ export const SelectContainer = styled.div`
       color: white;
       transform: rotate(90deg);
       position: absolute;
-      right: .7rem;
-      top: .8rem;
+      right: 7px;
+      top: 7px;
       pointer-events: none;
     }
 
@@ -69,12 +77,12 @@ export const SelectContainer = styled.div`
       border: none;
       padding: 0.7rem 2.2rem;
       appearance: none;
-      border: 1px solid rgba(170,170,170);
       outline: none;
-      border-radius: 3px;
+      border-radius: 5px;
       font-size: 1.4rem;
       line-height: 20px;
       font-family: Netflix-Medium;
+
 
 
 

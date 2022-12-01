@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: -1;
 
     > div{
       height: 733px;
@@ -25,5 +26,5 @@ export const Background = styled.div`
   left: 0;
   right: 0;
   position: absolute;
-  background-image: linear-gradient(0deg,rgba(0,0,0,.8) 0,transparent 60%,rgba(0,0,0,.8));
+  background-image: linear-gradient(0deg,rgba(0,0,0,.8) 0,rgba(0,0,0,.5) 60%,rgba(0,0,0,.8));
 `;

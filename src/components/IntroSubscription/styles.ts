@@ -7,20 +7,37 @@ export const Wrapper = styled.div`
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
+    text-align: center;
+    padding-bottom: 86px;
+
+
     ${Heading}{
-      max-width: 700px;
       margin: 0 auto;
-      line-height: 1;
-    }
+      line-height: 1.1;
+    };
+
+    > ${Heading}:first-child{
+      max-width: 800px;
+      padding: 0 50px;
+      font-family: Netflix-Medium;
+    };
+
+
+
   `}
 `;
 
 export const SubsForm = styled.form`
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  `;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 12px;
+
+  ${Heading}{
+
+  }
+`;
 
 export const SubsInput = styled.input`
   outline: none;

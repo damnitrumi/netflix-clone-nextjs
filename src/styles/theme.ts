@@ -4,6 +4,7 @@ export const theme = {
     netflixHoverColor: "#f40612",
     netflixTextColor: "#FFFFFF",
     netflixBackGround: "black",
+    netflixBorderBottom: "#222222",
   },
   font: {
     family: {

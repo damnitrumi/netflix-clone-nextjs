@@ -11,6 +11,8 @@ export const Wrapper = styled.button`
     display: flex;
     align-items: center;
     min-height: 70px;
+    border-left: 1px solid #333;
+    box-shadow: 0 1px 0 rgb(0 0 0 / 45%);
 
     &:hover{
       background-color: ${theme.colors.netflixHoverColor};
