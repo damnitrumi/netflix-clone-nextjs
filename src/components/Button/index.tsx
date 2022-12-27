@@ -2,11 +2,12 @@ import * as Styled from "./styles";
 
 export type ButtonProps = {
   children: React.ReactNode;
+  onClick?: () => void;
 };
 
-export const Button = ({ children }: ButtonProps) => {
+export const Button = ({ children, onClick }: ButtonProps) => {
   return (
-    <Styled.Wrapper>
+    <Styled.Wrapper onClick={onClick && onClick}>
       {children}
       <span>
         <svg viewBox="0 0 6 12" xmlns="http://www.w3.org/2000/svg">

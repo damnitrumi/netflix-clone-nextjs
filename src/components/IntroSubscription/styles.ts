@@ -1,8 +1,9 @@
 import styled, { css } from "styled-components";
 import { Title as Heading } from "../Heading/styles";
+import { Wrapper as Button } from "../Button/styles";
 
 export const Wrapper = styled.div`
-  ${() => css`
+  ${({ theme }) => css`
     max-width: 950px;
     margin: 0 auto;
     display: flex;
@@ -23,7 +24,11 @@ export const Wrapper = styled.div`
       font-family: Netflix-Medium;
     };
 
-
+    ${Button}{
+      &:hover{
+      background-color: ${theme.colors.netflixHoverColor};
+    }
+    }
 
   `}
 `;

@@ -9,9 +9,9 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   ${() => css`
-    margin: 0 auto;
+    /* margin: 0 auto; */
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   `}
 `;
