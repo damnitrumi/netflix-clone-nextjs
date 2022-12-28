@@ -19,6 +19,27 @@ export const Wrapper = styled.div`
     /* max-width: 1471px;
     margin: 0 auto; */
     margin-bottom: 102px;
+
+    @media ${theme.media.ltaLarge}{
+    span{
+      max-width: 134px;
+      max-height: 36px;
+    }
+
+    @media ${theme.media.ltaBig}{
+
+      margin: 0 4.5rem;
+
+      span{
+        max-width: 108px;
+        max-height: 32px;
+      }
+    }
+
+    @media ${theme.media.ltaSmall}{
+      margin: 0 2.7rem;
+
+    }
   `}
 `;
 

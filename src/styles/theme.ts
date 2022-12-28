@@ -6,6 +6,7 @@ export const theme = {
     netflixBackGround: "black",
     netflixBorderBottom: "#222222",
     netflixMainBlue: "#0071eb",
+    netflixFooterColor: "#737373",
   },
   font: {
     family: {
@@ -24,7 +25,10 @@ export const theme = {
     },
   },
   media: {
+    ltaLarge: "(max-width: 1450px)",
+    ltaBig: "(max-width: 950px)",
     ltaMedium: "(max-width: 768px)",
+    ltaSmall: "(max-width: 550px)",
   },
   spacings: {
     xsmall: "8rem",

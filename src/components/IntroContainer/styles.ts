@@ -10,8 +10,8 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
   ${() => css`
     /* margin: 0 auto; */
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
   `}
 `;
