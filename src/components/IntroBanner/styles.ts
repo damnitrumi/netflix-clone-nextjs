@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
-  ${() => css`
+  ${({ theme }) => css`
     position: absolute;
     top: 0;
     bottom: 0;
@@ -16,6 +16,48 @@ export const Wrapper = styled.div`
     img{
       height: 100%;
       width: 100%;
+    }
+
+    @media ${theme.media.ltaLarge}{
+      > div {
+        height: 713px;
+      }
+    }
+
+    @media ${theme.media.ltaBig}{
+      > div {
+        height: 636px;
+      }
+    }
+
+    @media ${theme.media.ltaMedium}{
+      > div {
+        height: 613px;
+      }
+    }
+
+    @media (max-width: 709px){
+      > div {
+        height: 668px;
+      }
+    }
+
+    @media (max-width: 626px){
+      > div {
+        height: 697px;
+      }
+    }
+
+    @media ${theme.media.ltaSmall}{
+      > div {
+        height: 548px;
+      }
+    }
+
+    @media ${theme.media.ltaTiny}{
+      > div {
+        height: 481px;
+      }
     }
   `}
 `;

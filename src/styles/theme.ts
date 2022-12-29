@@ -29,6 +29,7 @@ export const theme = {
     ltaBig: "(max-width: 950px)",
     ltaMedium: "(max-width: 768px)",
     ltaSmall: "(max-width: 550px)",
+    ltaTiny: "(max-width: 375px)",
   },
   spacings: {
     xsmall: "8rem",

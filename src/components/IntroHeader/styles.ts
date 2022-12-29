@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { Wrapper as LinkBtn } from "../LinkBtn/styles";
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
@@ -15,7 +16,7 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin: 0 5.6rem;
+    margin: 0 56px;
     /* max-width: 1471px;
     margin: 0 auto; */
     margin-bottom: 102px;
@@ -37,24 +38,41 @@ export const Wrapper = styled.div`
     }
 
     @media ${theme.media.ltaSmall}{
-      margin: 0 2.7rem;
+      margin: 0 26px;
+      span{
+        max-width: 89px;
+        max-height: 24px;
+      }
+    }
+
+    @media ${theme.media.ltaTiny}{
+      margin: 0 1.9rem;
 
     }
+
   `}
 `;
 
 export const OptionsContainer = styled.div`
-  ${() => css`
+  ${({ theme }) => css`
     display: flex;
     align-items: flex-start;
     gap: 30px;
+
+    @media ${theme.media.ltaSmall}{
+      gap: 12px;
+      ${LinkBtn}{
+        padding: 0.45rem .85rem;
+        font-size: 1.4rem;
+      }
+    }
   `}
 `;
 
 export const SelectContainer = styled.div`
   ${({ theme }) => css`
     position: relative;
-    border-radius: 5px;
+    border-radius: 2px;
     border: 1px solid rgba(170,170,170);
 
 
@@ -103,15 +121,28 @@ export const SelectContainer = styled.div`
       font-size: 1.4rem;
       line-height: 20px;
       font-family: Netflix-Medium;
-
-
-
-
       /* -moz-appearance: none;
       -webkit-appearance: none; */
     }
     /* select::-ms-expand{
       display: none;
     } */
+
+    @media ${theme.media.ltaSmall}{
+      select{
+        padding: 0.3rem 2.15rem;
+      }
+
+      &::before{
+        left: 3px;
+        top: 4px;
+      }
+
+      &::after{
+        right: 7px;
+        top: 3px;
+      }
+
+    }
   `}
 `;
