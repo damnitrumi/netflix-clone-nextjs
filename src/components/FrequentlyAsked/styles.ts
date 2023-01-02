@@ -13,7 +13,6 @@ export const Wrapper = styled.ul`
     gap: 8px;
     margin-bottom: 50px;
 
-
     a{
       color: ${theme.colors.netflixTextColor}
     }
@@ -25,20 +24,42 @@ export const Wrapper = styled.ul`
       margin-bottom: 1px;
     }
 
+    @media ${theme.media.ltaBig}{
+      margin-bottom: 15px;
+    }
+
+
   `}
 `;
 
 export const FrequentlyAskedBtn = styled(Button)`
-  background-color: #303030;
-  width: 100%;
-  justify-content: space-between;
-  font-size: 2.6rem;
-  span{
-    display: none;
-  }
-  svg{
-    height: 35px;
-  }
+  ${({ theme }) => css`
+    background-color: #303030;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 2.6rem;
+    span{
+      display: none;
+    }
+    svg{
+      height: 35px;
+    }
+
+    @media ${theme.media.ltaBig}{
+      font-size: 2.0rem;
+      min-height: 57px;
+      padding: 0 20px;
+      svg{
+        height: 25px;
+      }
+    }
+
+    @media ${theme.media.ltaSmall}{
+      font-size: 1.8rem;
+      min-height: 51px;
+      text-align: start;
+    }
+  `}
 `;
 
 export const OptionContainer = styled.div``;

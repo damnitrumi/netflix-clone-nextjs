@@ -4,8 +4,18 @@ import { Wrapper as IntroContainer } from "../IntroContainer/styles";
 import { SelectContainer } from "../IntroHeader/styles";
 
 export const IntroContainerFooter = styled(IntroContainer)`
-  border-bottom: none;
-  padding: 70px 45px 25px 70px;
+  ${({ theme }) => css`
+    border-bottom: none;
+    padding: 70px 45px 25px 50px;
+
+    @media ${theme.media.ltaBig}{
+      padding: 70px 45px 25px 90px;
+
+    @media (max-width: 750px){
+      padding: 70px 45px 25px 50px;
+    }
+
+  `}
 `;
 
 export const Wrapper = styled.div`
@@ -59,16 +69,27 @@ export const Wrapper = styled.div`
 `;
 
 export const LinksContainer = styled.ul`
-  ${() => css`
+  ${({ theme }) => css`
     display: grid;
-    grid-template-columns: repeat(4 ,minmax(143px, 225px));
+    grid-template-columns: repeat(4 ,minmax(100px, 225px));
     row-gap: 15px;
     column-gap: 15px;
     margin: 25px 0;
     li{
       list-style-type: none;
       font-size: 1.3rem;
-      white-space: pre;
+    }
+
+    @media ${theme.media.ltaBig}{
+      column-gap: 5px;
+    }
+
+    @media (max-width: 740px){
+      grid-template-columns: repeat(3 ,minmax(100px, 225px));
+    }
+
+    @media (max-width: 500px){
+      grid-template-columns: repeat(2 ,minmax(100px, 225px));
     }
   `}
 `;

@@ -29,7 +29,7 @@ export const Wrapper = styled.div`
 
     @media ${theme.media.ltaBig}{
 
-      margin: 0 4.5rem;
+      margin: 0 45px;
 
       span{
         max-width: 108px;
@@ -46,7 +46,7 @@ export const Wrapper = styled.div`
     }
 
     @media ${theme.media.ltaTiny}{
-      margin: 0 1.9rem;
+      margin: 0 19px;
 
     }
 
