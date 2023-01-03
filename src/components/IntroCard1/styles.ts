@@ -62,7 +62,6 @@ export const ImageContainer = styled.div`
     }
 
     @media ${theme.media.ltaBig}{
-
       flex-basis: auto;
     }
 

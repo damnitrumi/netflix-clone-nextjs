@@ -3,10 +3,13 @@ export const theme = {
     netflixMainColor: "#e50914",
     netflixHoverColor: "#f40612",
     netflixTextColor: "#FFFFFF",
+    netflixLightGreyColor: "#B3B3B3",
     netflixBackGround: "black",
     netflixBorderBottom: "#222222",
     netflixMainBlue: "#0071eb",
     netflixFooterColor: "#737373",
+    netflixInputBgColor: "#333333",
+    netflixErrorColor: "#e87c03",
   },
   font: {
     family: {

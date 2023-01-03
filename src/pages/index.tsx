@@ -4,6 +4,11 @@ import { useSession } from "next-auth/react";
 export default function Index() {
   const { data: session } = useSession();
   console.log(session);
+
+  if (!session) {
+    return <p>Você não está logado</p>;
+  }
+
   return (
     <>
       <h1>Olá mundo</h1>
