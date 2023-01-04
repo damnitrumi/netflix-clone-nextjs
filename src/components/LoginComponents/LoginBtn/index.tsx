@@ -2,11 +2,14 @@ import * as Styled from "./styles";
 
 export type LoginBtnProps = {
   children: React.ReactNode;
-  onClick?: () => void;
+  onBtnClick?: () => void;
+  disabled: boolean;
 };
 
-export const LoginBtn = ({ children, onClick }: LoginBtnProps) => {
+export const LoginBtn = ({ children, onBtnClick, disabled }: LoginBtnProps) => {
   return (
-    <Styled.Wrapper onClick={onClick && onClick}>{children}</Styled.Wrapper>
+    <Styled.Wrapper onClick={onBtnClick && onBtnClick} disabled={disabled}>
+      {children}
+    </Styled.Wrapper>
   );
 };

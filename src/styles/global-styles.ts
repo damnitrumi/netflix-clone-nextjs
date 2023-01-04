@@ -16,6 +16,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 1.6rem;
     font-family: Netflix;
     font-weight: 400;
+    background-color: black;
   }
 
   img{

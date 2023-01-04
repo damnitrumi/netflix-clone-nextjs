@@ -13,5 +13,10 @@ export const Wrapper = styled.button`
     font-family: Netflix-Medium;
     width: 100%;
     text-align: center;
+
+    &:disabled{
+      background-color: grey;
+      cursor: wait;
+    }
   `}
 `;

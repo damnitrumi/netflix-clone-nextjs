@@ -50,6 +50,14 @@ export const LoginInput = styled.input`
     border-radius: 3px;
     height: 50px;
     font-family: Netflix-Medium;
+
+    &.has-error{
+      border-bottom: 2px solid ${theme.colors.netflixErrorColor};
+    }
+
+    &:focus{
+      border: ${theme.colors.netflixErrorColor};
+    }
   `}
 `;
 
@@ -67,17 +75,21 @@ export const LoginForm = styled.form`
   `}
 `;
 export const LoginInputContainer = styled.div`
-  ${() => css`
+  ${({ theme }) => css`
     position: relative;
 
     label{
-    position: absolute;
-    left: 20px;
-    color: #8c8c8c;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: all .1s ease-in-out;
-    pointer-events: none;
+      position: absolute;
+      left: 20px;
+      color: #8c8c8c;
+      top: 25px;
+      transform: translateY(-50%);
+      transition: all .1s ease-in-out;
+      pointer-events: none;
+    }
+
+  > ${LoginInput}{
+    color: white;
   }
 
   > ${LoginInput}:focus{
@@ -92,8 +104,24 @@ export const LoginInputContainer = styled.div`
     font-size: 1.1rem;
   }
 
+  label.has-data{
+    transform: translateY(0);
+    top: 6px;
+    left: 20px;
+    font-family: Netflix-Medium;
+    font-size: 1.1rem;
+  }
+
   & + &{
     margin-bottom: 24px;
+  }
+
+  p{
+    color: ${theme.colors.netflixErrorColor};
+    font-size: 1.3rem;
+    padding-left: 3px;
+    line-height: 1;
+    margin-top: 8px;
   }
 
   @media (max-width: 740px){
@@ -166,6 +194,23 @@ export const CaptchaText = styled.p`
     font-size: 1.3rem;
     a{
       color: ${theme.colors.netflixMainBlue} !important;
+    }
+  `}
+`;
+
+export const LoginError = styled.div`
+  ${({ theme }) => css`
+    background-color: ${theme.colors.netflixErrorColor};
+    padding: 10px 20px;
+    border-radius: 3px;
+
+    p{
+      font-size: 1.4rem;
+      line-height: 1.3;
+    }
+
+    a{
+      color: ${theme.colors.netflixTextColor};
     }
   `}
 `;

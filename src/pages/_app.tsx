@@ -4,6 +4,7 @@ import { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
 
 import { GlobalStyles } from "../styles/global-styles";
+import "../../public/assets/fonts/styles.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
