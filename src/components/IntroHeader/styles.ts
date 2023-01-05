@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { Wrapper as LinkBtn } from "../LinkBtn/styles";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.header`
   ${({ theme }) => css`
     padding-top: 28px;
     span{

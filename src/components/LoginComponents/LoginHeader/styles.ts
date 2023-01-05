@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.header`
   ${({ theme }) => css`
     padding: 24px 3% 0;
     display: flex;

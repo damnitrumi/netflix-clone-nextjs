@@ -25,7 +25,7 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <ThemeProvider theme={theme}>
-      <div >
+      <div style={{height: '200vh'}}>
         <Story />
         <GlobalStyles />
       </div>
