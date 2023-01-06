@@ -1,11 +1,21 @@
 import Link from "next/link";
 import * as Styled from "./styles";
 import { Search } from "@styled-icons/bootstrap";
-import { useState, useRef } from "react";
+import { Notifications, ArrowDropDown } from "@styled-icons/material-outlined";
+import { useState, useRef, useEffect } from "react";
+
+export type HomeInputProps = {
+  focused: boolean;
+};
+
+export type HomeHeaderProps = {
+  navBg: boolean;
+};
 
 export const HomeHeader = () => {
   const inputSearch = useRef();
   const [search, setSearch] = useState(false);
+  const [navBg, setNavBg] = useState(false);
 
   const handleBtnSearchClick = () => {
     const input = inputSearch.current as HTMLElement;
@@ -13,8 +23,29 @@ export const HomeHeader = () => {
     setSearch(true);
   };
 
+  const changeBgNavOnScroll = () => {
+    const scrollWindow = window.scrollY;
+    if (scrollWindow >= 1 && navBg == false) {
+      setNavBg(true);
+    } else if (scrollWindow < 1 && navBg == true) {
+      setNavBg(false);
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", changeBgNavOnScroll);
+
+      // cleanup function
+      return () => {
+        window.removeEventListener("scroll", changeBgNavOnScroll);
+      };
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [navBg]);
+
   return (
-    <Styled.Wrapper>
+    <Styled.Wrapper navBg={navBg}>
       <Link href="/browse">
         <a>
           <span>
@@ -28,29 +59,36 @@ export const HomeHeader = () => {
         </a>
       </Link>
       <Styled.Navbar>
-        <Styled.LeftList>
-          <li>
-            <Link href="/">Início</Link>
-          </li>
-          <li>
-            <Link href="/">Séries</Link>
-          </li>
-          <li>
-            <Link href="/">Filmes</Link>
-          </li>
-          <li>
-            <Link href="/">Bombando</Link>
-          </li>
-          <li>
-            <Link href="/">Minha lista</Link>
-          </li>
-          <li>
-            <Link href="/">Navegar por idiomas</Link>
-          </li>
-        </Styled.LeftList>
+        <Styled.DropdownLeftContainer>
+          <Styled.DropdownLeftHandler>
+            <span>Navegar</span>
+            <ArrowDropDown size="24px" />
+          </Styled.DropdownLeftHandler>
+
+          <Styled.LeftList>
+            <li>
+              <Link href="/">Início</Link>
+            </li>
+            <li>
+              <Link href="/">Séries</Link>
+            </li>
+            <li>
+              <Link href="/">Filmes</Link>
+            </li>
+            <li>
+              <Link href="/">Bombando</Link>
+            </li>
+            <li>
+              <Link href="/">Minha lista</Link>
+            </li>
+            <li>
+              <Link href="/">Navegar por idiomas</Link>
+            </li>
+          </Styled.LeftList>
+        </Styled.DropdownLeftContainer>
         <Styled.RightList>
           <li>
-            <Styled.InputContainer>
+            <Styled.InputContainer focused={search}>
               {!search && (
                 <button onClick={handleBtnSearchClick}>
                   <Search size="24px" />
@@ -66,8 +104,26 @@ export const HomeHeader = () => {
                 placeholder="Títulos, gente e gêneros"
                 ref={inputSearch}
                 onBlur={() => setSearch(false)}
+                focused={search}
               />
             </Styled.InputContainer>
+          </li>
+          <li className="remove-responsive">
+            <Link href="/Kids">Infantil</Link>
+          </li>
+          <li>
+            <Notifications size="24px" />
+          </li>
+          <li>
+            <button>
+              <Styled.ImgContainer>
+                <img
+                  src="assets/images/netflix-user-icon.jpg"
+                  alt="Sunder Muthukumaran on Unsplash.com"
+                />
+              </Styled.ImgContainer>
+              <ArrowDropDown />
+            </button>
           </li>
         </Styled.RightList>
       </Styled.Navbar>
