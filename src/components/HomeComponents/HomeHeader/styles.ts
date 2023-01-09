@@ -128,7 +128,6 @@ export const LeftList = styled.ul`
     align-items: center;
     gap: 20px;
     position: relative;
-
     a{
       text-decoration: none;
       color: ${theme.colors.netflixTextColor};
@@ -183,13 +182,17 @@ export const LeftList = styled.ul`
       /* border-top: 2px solid ${theme.colors.netflixTextColor}; */
       width: 250px;
       gap: 0;
-      background-color: rgba(0, 0, 0, 0.7);
       display: none;
       padding-top: 30px;
 
       li:first-of-type{
         border-top: 2px solid ${theme.colors.netflixTextColor};
       }
+
+      li{
+        background-color: rgba(0, 0, 0, .7);
+      }
+
       a{
         display: block;
         font-size: 1.3rem;
