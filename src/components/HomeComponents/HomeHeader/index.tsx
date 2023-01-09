@@ -1,8 +1,13 @@
 import Link from "next/link";
 import * as Styled from "./styles";
 import { Search } from "@styled-icons/bootstrap";
-import { Notifications, ArrowDropDown } from "@styled-icons/material-outlined";
+import {
+  Notifications,
+  ArrowDropDown,
+  Menu,
+} from "@styled-icons/material-outlined";
 import { useState, useRef, useEffect } from "react";
+import { HomeHeaderResponsive } from "../HomeHeaderResponsive";
 
 export type HomeInputProps = {
   focused: boolean;
@@ -16,6 +21,7 @@ export const HomeHeader = () => {
   const inputSearch = useRef();
   const [search, setSearch] = useState(false);
   const [navBg, setNavBg] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
 
   const handleBtnSearchClick = () => {
     const input = inputSearch.current as HTMLElement;
@@ -32,6 +38,10 @@ export const HomeHeader = () => {
     }
   };
 
+  const handleMenuClick = () => {
+    setMenuVisible((v) => !v);
+  };
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", changeBgNavOnScroll);
@@ -46,6 +56,9 @@ export const HomeHeader = () => {
 
   return (
     <Styled.Wrapper navBg={navBg}>
+      <button onClick={handleMenuClick}>
+        <Menu size="35px" />
+      </button>
       <Link href="/browse">
         <a>
           <span>
@@ -66,6 +79,8 @@ export const HomeHeader = () => {
           </Styled.DropdownLeftHandler>
 
           <Styled.LeftList>
+            <ArrowDropDown size="35px" className="left-list-arrow" />
+
             <li>
               <Link href="/">Início</Link>
             </li>
@@ -87,7 +102,7 @@ export const HomeHeader = () => {
           </Styled.LeftList>
         </Styled.DropdownLeftContainer>
         <Styled.RightList>
-          <li>
+          <li className="input-li">
             <Styled.InputContainer focused={search}>
               {!search && (
                 <button onClick={handleBtnSearchClick}>
@@ -111,10 +126,10 @@ export const HomeHeader = () => {
           <li className="remove-responsive">
             <Link href="/Kids">Infantil</Link>
           </li>
-          <li>
+          <li className="notifications">
             <Notifications size="24px" />
           </li>
-          <li>
+          <li className="profile">
             <button>
               <Styled.ImgContainer>
                 <img
@@ -127,6 +142,7 @@ export const HomeHeader = () => {
           </li>
         </Styled.RightList>
       </Styled.Navbar>
+      <HomeHeaderResponsive visible={menuVisible} />
     </Styled.Wrapper>
   );
 };

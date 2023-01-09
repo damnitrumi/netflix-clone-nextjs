@@ -3,11 +3,10 @@ import { HomeHeaderProps, HomeInputProps } from ".";
 
 export const Wrapper = styled.header<HomeHeaderProps>`
   ${({ theme, navBg }) => css`
-    padding: 18px 4%;
+    padding: 18px 4% 18px 17%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* margin-bottom: 22px; */
     transition: background-color 300ms ease-in;
     background-color: ${
       navBg ? `${theme.colors.netflixHomeBgColor}` : "transparent"
@@ -23,10 +22,24 @@ export const Wrapper = styled.header<HomeHeaderProps>`
         max-width: 92px;
         max-height: 25px;
         margin-right: 45px;
+        span{
+          display: block;
+          line-height: 1;
+        }
       }
 
     svg{
       fill: ${theme.colors.netflixMainColor};
+    }
+
+    > button{
+      svg{
+        fill: ${theme.colors.netflixTextColor};
+      }
+      position: absolute;
+      left: 4%;
+      border: none;
+      background-color: transparent;
     }
 
     @media (max-width: 1150px){
@@ -37,20 +50,29 @@ export const Wrapper = styled.header<HomeHeaderProps>`
     }
 
     @media ${theme.media.ltaBig}{
-      padding-top: 5px;
-
       > a{
           max-width: 65px;
         }
     }
 
+    @media (max-width: 500px){
+      > a{
+        margin-top: 4px;
+      }
 
+    }
+
+    @media (min-width: 500px){
+      padding: 18px 4%;
+      > button {
+        display: none;
+      }
+    }
   `}
 `;
 
 export const Navbar = styled.nav`
   ${({ theme }) => css`
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -64,27 +86,22 @@ export const Navbar = styled.nav`
 
     }
 
-    /* > div {
-      color: ${theme.colors.netflixTextColor};
-      font-size: 0.9rem;
-      display: none;
-      @media (max-width: 850px){
-        display: block;
-      }
+    @media (min-width: 500px){
+      flex: 1;
     }
-
-    > div:hover{
-      background-color: blue;
-      cursor: pointer;
-    } */
   `}
 `;
 
 export const DropdownLeftContainer = styled.div`
-  ${({ theme }) => css`
+  ${() => css`
     position: relative;
+    display: none;
     &:hover ${LeftList}{
       display: flex;
+    }
+
+    @media (min-width: 500px){
+      display: block;
     }
 `}
 `;
@@ -100,6 +117,7 @@ export const DropdownLeftHandler = styled.div`
 
       @media (max-width: 850px){
         display: block;
+
       }
   `}
 `;
@@ -109,6 +127,7 @@ export const LeftList = styled.ul`
     display: flex;
     align-items: center;
     gap: 20px;
+    position: relative;
 
     a{
       text-decoration: none;
@@ -123,6 +142,14 @@ export const LeftList = styled.ul`
 
     li{
       list-style-type: none;
+    }
+
+    .left-list-arrow{
+      position: absolute;
+      left: 50%;
+      transform:  translateX(-50%) rotate(180deg);
+      top: 10px;
+      display: none;
     }
 
     @media (max-width: 1200px){
@@ -174,6 +201,10 @@ export const LeftList = styled.ul`
         background-color: rgba(255, 255, 255, 0.1);
         color: ${theme.colors.netflixTextColor};
       }
+
+      .left-list-arrow{
+        display: block;
+      }
     }
   `}
 `;
@@ -183,6 +214,10 @@ export const RightList = styled.ul`
     display: flex;
     align-items: center;
     gap: 20px;
+
+    .notifications, .profile{
+      display: none;
+    }
 
     a{
       text-decoration: none;
@@ -201,6 +236,7 @@ export const RightList = styled.ul`
       gap: 5px;
       background-color: transparent;
       cursor: pointer;
+      border: none;
 
       &:hover svg{
         transform: rotate(180deg);
@@ -216,7 +252,6 @@ export const RightList = styled.ul`
         svg{
           display: none;
         }
-      }
       }
     }
 
@@ -242,11 +277,18 @@ export const RightList = styled.ul`
         font-size: 0.9rem;
       }
     }
+
+    @media (min-width: 500px){
+      .notifications, .profile{
+          display: block;
+      }
+    }
+
   `}
 `;
 
 export const ImgContainer = styled.div`
-  ${({ theme }) => css`
+  ${() => css`
     max-width: 32px;
     border-radius: 5px;
     img{
@@ -258,8 +300,9 @@ export const ImgContainer = styled.div`
 export const InputContainer = styled.div<HomeInputProps>`
   ${({ theme, focused }) => css`
     display: flex;
-    background-color: rgba(0, 0, 0, 0.75);
+
     padding: 5px;
+    background-color: ${focused ? "rgba(0, 0, 0, 0.75)" : "transparent"};
     border: ${
       focused
         ? `1px solid ${theme.colors.netflixTextColor}`
@@ -291,6 +334,11 @@ export const InputContainer = styled.div<HomeInputProps>`
     @media ${theme.media.ltaBig}{
       padding: 3px;
     }
+
+    @media (max-width: 550px){
+      max-width: auto;
+    }
+
   `}
 `;
 
@@ -307,8 +355,9 @@ export const SearchInput = styled.input<HomeInputProps>`
     max-width: ${focused ? "200px" : "0px"};
     margin-left: ${focused ? "15px" : "0px"};
 
-    /* @media ${theme.media.ltaBig}{
+    @media (max-width: 550px){
       font-size: 1.2rem;
-    } */
+    }
+
   `}
 `;
