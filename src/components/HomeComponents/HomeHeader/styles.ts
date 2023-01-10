@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { HomeHeaderProps, HomeInputProps } from ".";
 
 export const Wrapper = styled.header<HomeHeaderProps>`
-  ${({ theme, navBg }) => css`
+  ${({ theme, navBg, menuVisible }) => css`
     padding: 18px 4% 18px 17%;
     display: flex;
     justify-content: space-between;
@@ -11,6 +11,12 @@ export const Wrapper = styled.header<HomeHeaderProps>`
     background-color: ${
       navBg ? `${theme.colors.netflixHomeBgColor}` : "transparent"
     };
+    ${
+      menuVisible &&
+      css`
+      background-color: black;
+    `
+    }
     position: fixed;
     z-index: 2;
     top: 0;

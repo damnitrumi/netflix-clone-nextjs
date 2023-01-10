@@ -18,6 +18,7 @@ export type HomeInputProps = {
 
 export type HomeHeaderProps = {
   navBg: boolean;
+  menuVisible: boolean;
 };
 
 export const HomeHeader = () => {
@@ -58,7 +59,7 @@ export const HomeHeader = () => {
   }, [navBg]);
 
   return (
-    <Styled.Wrapper navBg={navBg}>
+    <Styled.Wrapper navBg={navBg} menuVisible={menuVisible}>
       <button onClick={handleMenuClick}>
         <Menu size="35px" />
       </button>
