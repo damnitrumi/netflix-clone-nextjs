@@ -1,11 +1,14 @@
 import Link from "next/link";
 import * as Styled from "./styles";
-import { Search } from "@styled-icons/bootstrap";
+import { Search, Pencil } from "@styled-icons/bootstrap";
 import {
   Notifications,
   ArrowDropDown,
   Menu,
 } from "@styled-icons/material-outlined";
+
+import { User, HelpCircle } from "@styled-icons/boxicons-regular";
+import { Profile } from "@styled-icons/icomoon";
 import { useState, useRef, useEffect } from "react";
 import { HomeHeaderResponsive } from "../HomeHeaderResponsive";
 
@@ -77,10 +80,29 @@ export const HomeHeader = () => {
             <span>Navegar</span>
             <ArrowDropDown size="24px" />
           </Styled.DropdownLeftHandler>
-
-          <Styled.LeftList>
+          <Styled.LeftListHeaderResponsive>
             <ArrowDropDown size="35px" className="left-list-arrow" />
 
+            <li>
+              <Link href="/">Início</Link>
+            </li>
+            <li>
+              <Link href="/">Séries</Link>
+            </li>
+            <li>
+              <Link href="/">Filmes</Link>
+            </li>
+            <li>
+              <Link href="/">Bombando</Link>
+            </li>
+            <li>
+              <Link href="/">Minha lista</Link>
+            </li>
+            <li>
+              <Link href="/">Navegar por idiomas</Link>
+            </li>
+          </Styled.LeftListHeaderResponsive>
+          <Styled.LeftList>
             <li>
               <Link href="/">Início</Link>
             </li>
@@ -139,10 +161,51 @@ export const HomeHeader = () => {
               </Styled.ImgContainer>
               <ArrowDropDown />
             </button>
+            <Styled.DropdownRightMenu>
+              <ArrowDropDown size="35px" className="right-list-arrow" />
+
+              <li>
+                <Link href="/">
+                  <a>
+                    <Pencil size="20px" /> Gerenciar perfis
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/">
+                  <a>
+                    <Profile size="20px" />
+                    Transferir perfil
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/">
+                  <a>
+                    <User size="20px" />
+                    Conta
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/">
+                  <a>
+                    <HelpCircle size="20px" />
+                    Central de Ajuda
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <button onClick={() => console.log("Função de SignOut aqui")}>
+                  Sair da Netflix
+                </button>
+              </li>
+            </Styled.DropdownRightMenu>
           </li>
         </Styled.RightList>
       </Styled.Navbar>
       <HomeHeaderResponsive visible={menuVisible} />
+      {menuVisible && <Styled.bg />}
     </Styled.Wrapper>
   );
 };

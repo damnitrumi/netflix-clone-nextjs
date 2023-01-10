@@ -12,6 +12,7 @@ export const Wrapper = styled.header<HomeHeaderProps>`
       navBg ? `${theme.colors.netflixHomeBgColor}` : "transparent"
     };
     position: fixed;
+    z-index: 2;
     top: 0;
     left: 0;
     right: 0;
@@ -95,16 +96,19 @@ export const Navbar = styled.nav`
 export const DropdownLeftContainer = styled.div`
   ${() => css`
     position: relative;
-    display: none;
-    &:hover ${LeftList}{
-      display: flex;
+
+    &:hover ${LeftListHeaderResponsive}{
+      opacity: 1;
+      visibility: visible;
     }
+
 
     @media (min-width: 500px){
       display: block;
     }
 `}
 `;
+
 export const DropdownLeftHandler = styled.div`
   ${({ theme }) => css`
 
@@ -115,9 +119,8 @@ export const DropdownLeftHandler = styled.div`
 
 
 
-      @media (max-width: 850px){
+      @media (min-width: 500px) and (max-width: 850px){
         display: block;
-
       }
   `}
 `;
@@ -143,14 +146,6 @@ export const LeftList = styled.ul`
       list-style-type: none;
     }
 
-    .left-list-arrow{
-      position: absolute;
-      left: 50%;
-      transform:  translateX(-50%) rotate(180deg);
-      top: 10px;
-      display: none;
-    }
-
     @media (max-width: 1200px){
       a{
         font-size: 1.2rem;
@@ -174,40 +169,7 @@ export const LeftList = styled.ul`
 
 
     @media (max-width: 850px){
-      position: absolute;
-      top: 30px;
-      left: -104px;
-      flex-direction: column;
-      align-items: stretch;
-      /* border-top: 2px solid ${theme.colors.netflixTextColor}; */
-      width: 250px;
-      gap: 0;
       display: none;
-      padding-top: 30px;
-
-      li:first-of-type{
-        border-top: 2px solid ${theme.colors.netflixTextColor};
-      }
-
-      li{
-        background-color: rgba(0, 0, 0, .7);
-      }
-
-      a{
-        display: block;
-        font-size: 1.3rem;
-        padding: 15px;
-        text-align: center;
-      }
-
-      a:hover{
-        background-color: rgba(255, 255, 255, 0.1);
-        color: ${theme.colors.netflixTextColor};
-      }
-
-      .left-list-arrow{
-        display: block;
-      }
     }
   `}
 `;
@@ -220,6 +182,12 @@ export const RightList = styled.ul`
 
     .notifications, .profile{
       display: none;
+      position: relative;
+    }
+
+    .profile:hover ${DropdownRightMenu}{
+      opacity: 1;
+      visibility: visible;
     }
 
     a{
@@ -233,7 +201,7 @@ export const RightList = styled.ul`
         list-style-type: none;
       }
 
-    li > button {
+    & > li > button {
       display: flex;
       align-items: center;
       gap: 5px;
@@ -286,6 +254,74 @@ export const RightList = styled.ul`
           display: block;
       }
     }
+
+  `}
+`;
+
+export const DropdownRightMenu = styled.ul`
+  ${({ theme }) => css`
+    list-style-type: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    color: ${theme.colors.netflixTextColor};
+    width: 218px;
+    padding-top: 30px;
+    background-color: transparent;
+    border-bottom: 1px solid ${theme.colors.netflixBorderBottom};
+    opacity: 0;
+    visibility: hidden;
+    transition: all 100ms ease-in;
+
+    a{
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 10px 15px;
+      font-size: 1.3rem;
+
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+
+    button{
+      background-color: transparent;
+      display: block;
+      width: 100%;
+      padding: 15px;
+      color: ${theme.colors.netflixTextColor};
+      border: none;
+      text-align: center;
+      cursor: pointer;
+      border-top: 1px solid ${theme.colors.netflixBorderBottom};
+
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+
+    li{
+      background-color: rgba(0, 0, 0, .8);
+      border-right: 1px solid ${theme.colors.netflixBorderBottom};
+      border-left: 1px solid ${theme.colors.netflixBorderBottom};
+    }
+
+    li:first-of-type{
+      border-top: 1px solid ${theme.colors.netflixBorderBottom};
+    }
+
+    .right-list-arrow{
+      position: absolute;
+      left: 80%;
+      transform:  translateX(-50%) rotate(180deg);
+      top: 9px;
+
+      @media ${theme.media.ltaBig}{
+        left: 92.5%;
+      }
+    }
+
 
   `}
 `;
@@ -362,5 +398,73 @@ export const SearchInput = styled.input<HomeInputProps>`
       font-size: 1.2rem;
     }
 
+  `}
+`;
+
+export const LeftListHeaderResponsive = styled.ul`
+  ${({ theme }) => css`
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: -104px;
+    flex-direction: column;
+    align-items: stretch;
+    width: 250px;
+    gap: 0;
+    padding-top: 30px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 100ms ease-in;
+    border-bottom: 1px solid ${theme.colors.netflixBorderBottom};
+    a{
+      text-decoration: none;
+      color: ${theme.colors.netflixTextColor};
+      transition: all 300ms ease-in;
+      display: block;
+      font-size: 1.3rem;
+      padding: 15px;
+      text-align: center;
+
+    }
+
+    a:hover{
+      background-color: rgba(255, 255, 255, 0.1);
+      color: ${theme.colors.netflixTextColor};
+
+    }
+
+    li{
+      list-style-type: none;
+      background-color: rgba(0, 0, 0, .7);
+      border-right: 1px solid ${theme.colors.netflixBorderBottom};
+      border-left: 1px solid ${theme.colors.netflixBorderBottom};
+    }
+
+    li:first-of-type{
+        border-top: 2px solid ${theme.colors.netflixTextColor};
+    }
+
+    .left-list-arrow{
+      position: absolute;
+      left: 50%;
+      transform:  translateX(-50%) rotate(180deg);
+      top: 10px;
+      display: block;
+    }
+
+    @media (max-width: 850px){
+      display: flex;
+    }
+  `}
+`;
+
+export const bg = styled.div`
+  ${() => css`
+    position: fixed;
+    top: 68px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
   `}
 `;

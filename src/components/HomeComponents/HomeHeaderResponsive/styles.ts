@@ -8,6 +8,7 @@ export const Wrapper = styled.nav<HomeHeaderResponsiveProps>`
     max-width: 250px;
     padding: 15px 0;
     position: fixed;
+    z-index: 2;
     left: ${visible ? "0" : "-250px"};
     top: 68px;
     bottom: 0;
@@ -23,6 +24,15 @@ export const Wrapper = styled.nav<HomeHeaderResponsiveProps>`
       text-decoration: none;
       font-family: Netflix-Medium;
       font-size: 1.6rem;
+    }
+
+    button{
+      color: ${theme.colors.netflixFooterColor};
+      font-family: Netflix-Medium;
+      font-size: 1.6rem;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
     }
 
     @media (min-width: 500px){

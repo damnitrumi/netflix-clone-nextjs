@@ -30,7 +30,13 @@ export const HomeHeaderResponsive = ({
           <Link href="/">Central de Ajuda</Link>
         </li>
         <li>
-          <Link href="/">Sair da Netflix</Link>
+          <button
+            onClick={() =>
+              console.log("Função de SignOut aqui pelo responsive")
+            }
+          >
+            Sair da Netflix
+          </button>
         </li>
       </Styled.MainOptions>
       <Styled.Categories>
