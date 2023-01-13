@@ -1,11 +1,15 @@
 import { GetServerSideProps } from "next";
 import { useEffect } from "react";
-import { RawData } from "shared-types/RawData";
 // import { useSession } from "next-auth/react";
 import { Login } from "templates/Login";
-import { mapMovies } from "utils/map-movies";
+import { mapMovies, MovieRaw } from "utils/map-movies";
 import { mapSimilar } from "utils/map-similar";
 import { mapVideos } from "utils/map-videos";
+
+export type RawData = {
+  page: number;
+  results: MovieRaw[];
+};
 
 export default function Index() {
   useEffect(() => {
@@ -16,13 +20,13 @@ export default function Index() {
       const popularMoviesData = popularMoviesDataJson.results.slice(0, 18);
 
       const popularMoviesFiltered = mapMovies(popularMoviesData);
-      console.log(popularMoviesFiltered);
+      // console.log(popularMoviesFiltered);
 
       const popularMoviesWithVideos = await mapVideos(popularMoviesFiltered);
-      console.log(popularMoviesWithVideos);
+      // console.log(popularMoviesWithVideos);
 
-      const similarData = await mapSimilar(popularMoviesWithVideos);
-      console.log(similarData);
+      const popularMoviesSimilar = await mapSimilar(popularMoviesWithVideos);
+      console.log(popularMoviesSimilar);
     };
 
     load();
