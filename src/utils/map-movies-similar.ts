@@ -1,6 +1,6 @@
-import { RawData } from "pages";
+import { MoviesRawData } from "pages";
 import { mapMovies } from "./map-movies";
-import { mapVideos, MovieVideoMapped } from "./map-videos";
+import { mapMoviesVideo, MovieVideoMapped } from "./map-movies-videos";
 
 type MoviesComplete = {
   id: number;
@@ -19,7 +19,7 @@ export const mapSimilar = async (
       const similarUrl = `https://api.themoviedb.org/3/movie/${el.id}/similar?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=en-US&page=1`;
 
       const similarDataRaw = await fetch(similarUrl);
-      const similarDataJson: RawData = await similarDataRaw.json();
+      const similarDataJson: MoviesRawData = await similarDataRaw.json();
 
       if (similarDataJson.results.length == 0) {
         return {
@@ -30,7 +30,7 @@ export const mapSimilar = async (
 
       const similarDataFiltered = similarDataJson.results.slice(0, 6);
       const similarData = mapMovies(similarDataFiltered);
-      const similarDataWithVideos = await mapVideos(similarData);
+      const similarDataWithVideos = await mapMoviesVideo(similarData);
 
       return {
         ...el,

@@ -1,4 +1,5 @@
-import { MovieMapped } from "./map-movies";
+// import { MovieMapped } from "./map-movies";
+import { TvShowMapped } from "./map-tv-shows";
 
 type VideoRaw = {
   id: number;
@@ -16,7 +17,7 @@ type VideoRaw = {
   }[];
 };
 
-export type MovieVideoMapped = {
+export type TvShowsVideoMapped = {
   id: number;
   title: string;
   poster: string;
@@ -24,12 +25,12 @@ export type MovieVideoMapped = {
   videoUrl: string;
 };
 
-export const mapVideos = async (
-  movies: MovieMapped[],
-): Promise<MovieVideoMapped[]> => {
-  const moviesWithVideos = await Promise.all(
-    movies.map(async (el) => {
-      const videosUrl = `https://api.themoviedb.org/3/movie/${el.id}/videos?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=en-US`;
+export const mapTvShowsVideo = async (
+  tvShows: TvShowMapped[],
+): Promise<TvShowsVideoMapped[]> => {
+  const tvShowsWithVideos = await Promise.all(
+    tvShows.map(async (el) => {
+      const videosUrl = `https://api.themoviedb.org/3/tv/${el.id}/videos?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=en-US`;
 
       const videosDataRaw = await fetch(videosUrl);
       const videosDataJson: VideoRaw = await videosDataRaw.json();
@@ -47,5 +48,5 @@ export const mapVideos = async (
     }),
   );
 
-  return moviesWithVideos;
+  return tvShowsWithVideos;
 };
