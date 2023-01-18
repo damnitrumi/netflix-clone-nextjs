@@ -22,6 +22,7 @@ export const Wrapper = styled.div<Pick<CardProps, "posterHorizontal">>`
         min-height: 170px;
         opacity: 1;
       }
+
     }
   `}
 `;
@@ -48,6 +49,17 @@ export const VideoContainer = styled.div<Pick<CardProps, "posterHorizontal">>`
     background-image: url(${posterHorizontal});
     background-size: cover;
     border-radius: 5px 5px 0 0;
+    position: relative;
+    iframe{
+      position: absolute;
+      /* top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0; */
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
   `}
 `;
 export const DataContainer = styled.div`

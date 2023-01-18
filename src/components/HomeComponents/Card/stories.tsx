@@ -7,6 +7,7 @@ export default {
   args: {
     posterHorizontal: "/r9PkFnRUIthgBp2JZZzD380MWZy.jpg",
     voteAverage: 1.589,
+    videoUrl: "/RqrXhwS33yc",
   },
 } as Meta<CardProps>;
 

@@ -4,26 +4,44 @@ import { PlayCircleFill, ChevronDown } from "@styled-icons/bootstrap";
 import { ArrowDropDown } from "@styled-icons/material";
 import Link from "next/link";
 import { Text } from "components/Text";
+import { useState } from "react";
 
 export type CardProps = {
   posterHorizontal: string;
   voteAverage: number;
+  videoUrl: string;
 };
 
-export const Card = ({ posterHorizontal, voteAverage }: CardProps) => {
+export const Card = ({
+  posterHorizontal,
+  voteAverage,
+  videoUrl,
+}: CardProps) => {
+  const [visible, setVisible] = useState(false);
+
   const imgUrl = `${process.env.NEXT_PUBLIC_IMAGE_URL}${posterHorizontal}`;
   const score =
     voteAverage.toFixed(1).toString().replace(".", "") + "% relevante";
+  const videoLink = `http://www.youtube.com/embed${videoUrl}?autoplay=1&mute=1&fs=0`;
+
   return (
-    <Styled.Wrapper posterHorizontal={imgUrl}>
+    <Styled.Wrapper
+      posterHorizontal={imgUrl}
+      onMouseOver={() => {
+        setVisible(true);
+      }}
+      onMouseOut={() => {
+        setVisible(false);
+      }}
+    >
       <Styled.Modal>
-        <Styled.VideoContainer
-          posterHorizontal={imgUrl}
-        ></Styled.VideoContainer>
+        <Styled.VideoContainer posterHorizontal={imgUrl}>
+          {visible && <iframe src={videoLink} allow="autoplay"></iframe>}
+        </Styled.VideoContainer>
         <Styled.DataContainer>
           <Heading size="1.6rem">Puss in Boots: The Last Wish</Heading>
           <Styled.Controls>
-            <Link href="/">
+            <Link href="/" legacyBehavior>
               <a>
                 <PlayCircleFill size="40px" />
               </a>
