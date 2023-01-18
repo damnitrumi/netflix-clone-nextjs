@@ -20,8 +20,10 @@ type VideoRaw = {
 export type TvShowsVideoMapped = {
   id: number;
   title: string;
+  overview: string;
   poster: string;
-  poster_horizontal: string;
+  posterHorizontal: string;
+  voteAverage: number;
   videoUrl: string;
 };
 

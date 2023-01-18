@@ -18,8 +18,10 @@ export type TvShowRaw = {
 export type TvShowMapped = {
   id: number;
   title: string;
+  overview: string;
   poster: string;
-  poster_horizontal: string;
+  posterHorizontal: string;
+  voteAverage: number;
 };
 
 export const mapTvShows = (tvShowsJson: TvShowRaw[]): TvShowMapped[] => {
@@ -27,15 +29,19 @@ export const mapTvShows = (tvShowsJson: TvShowRaw[]): TvShowMapped[] => {
     const {
       id,
       name: title,
+      overview,
       poster_path: poster,
-      backdrop_path: poster_horizontal,
+      backdrop_path: posterHorizontal,
+      vote_average: voteAverage,
     } = el;
 
     return {
       id,
       title,
+      overview,
       poster,
-      poster_horizontal,
+      posterHorizontal,
+      voteAverage,
     };
   });
   return popularTvShowsFiltered;

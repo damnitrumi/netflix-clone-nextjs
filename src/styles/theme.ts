@@ -11,6 +11,7 @@ export const theme = {
     netflixInputBgColor: "#333333",
     netflixErrorColor: "#e87c03",
     netflixHomeBgColor: "#141414",
+    netflixScoreColor: "#46d369",
   },
   font: {
     family: {

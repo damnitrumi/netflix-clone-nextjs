@@ -5,6 +5,5 @@ export const Wrapper = styled.p<TextProps>`
   ${({ theme, size }) => css`
     color: ${theme.colors.netflixTextColor};
     font-size: ${size};
-    line-height: 30px;
   `}
 `;

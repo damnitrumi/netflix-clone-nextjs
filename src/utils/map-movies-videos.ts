@@ -19,8 +19,10 @@ export type VideoRaw = {
 export type MovieVideoMapped = {
   id: number;
   title: string;
+  overview: string;
   poster: string;
-  poster_horizontal: string;
+  posterHorizontal: string;
+  voteAverage: number;
   videoUrl: string;
 };
 

@@ -5,8 +5,10 @@ import { mapTvShowsVideo, TvShowsVideoMapped } from "./map-tv-shows-videos";
 type TvShowsComplete = {
   id: number;
   title: string;
+  overview: string;
   poster: string;
-  poster_horizontal: string;
+  posterHorizontal: string;
+  voteAverage: number;
   videoUrl: string;
   similar: TvShowsVideoMapped[] | string;
 };

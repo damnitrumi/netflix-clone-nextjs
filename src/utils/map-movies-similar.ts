@@ -5,8 +5,10 @@ import { mapMoviesVideo, MovieVideoMapped } from "./map-movies-videos";
 type MoviesComplete = {
   id: number;
   title: string;
+  overview: string;
   poster: string;
-  poster_horizontal: string;
+  posterHorizontal: string;
+  voteAverage: number;
   videoUrl: string;
   similar: MovieVideoMapped[] | string;
 };

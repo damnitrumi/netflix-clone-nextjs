@@ -18,8 +18,10 @@ export type MovieRaw = {
 export type MovieMapped = {
   id: number;
   title: string;
+  overview: string;
   poster: string;
-  poster_horizontal: string;
+  posterHorizontal: string;
+  voteAverage: number;
 };
 
 export const mapMovies = (moviesJson: MovieRaw[]): MovieMapped[] => {
@@ -27,14 +29,18 @@ export const mapMovies = (moviesJson: MovieRaw[]): MovieMapped[] => {
     const {
       id,
       title,
+      overview,
       poster_path: poster,
-      backdrop_path: poster_horizontal,
+      backdrop_path: posterHorizontal,
+      vote_average: voteAverage,
     } = el;
     return {
       id,
       title,
+      overview,
       poster,
-      poster_horizontal,
+      posterHorizontal,
+      voteAverage,
     };
   });
 

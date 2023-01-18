@@ -25,8 +25,10 @@ export type TrendingMapped = {
   id: number;
   name?: string;
   title?: string;
+  overview: string;
   poster: string;
-  poster_horizontal: string;
+  posterHorizontal: string;
+  voteAverage: number;
   videoUrl: string;
   similar: MovieVideoMapped[] | TvShowsVideoMapped[];
 };
@@ -38,8 +40,10 @@ export const mapTrending = async (
     trendingJson.map(async (el) => {
       const {
         id,
+        overview,
         poster_path: poster,
-        backdrop_path: poster_horizontal,
+        backdrop_path: posterHorizontal,
+        vote_average: voteAverage,
         media_type,
       } = el;
 
@@ -51,8 +55,10 @@ export const mapTrending = async (
       return {
         id,
         title,
+        overview,
         poster,
-        poster_horizontal,
+        posterHorizontal,
+        voteAverage,
         videoUrl,
         similar,
       };
