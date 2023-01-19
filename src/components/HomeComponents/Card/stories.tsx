@@ -5,6 +5,7 @@ export default {
   title: "Card",
   component: Card,
   args: {
+    title: "Puss in Boots: The Last Wish",
     posterHorizontal: "/r9PkFnRUIthgBp2JZZzD380MWZy.jpg",
     voteAverage: 1.589,
     videoUrl: "/RqrXhwS33yc",
