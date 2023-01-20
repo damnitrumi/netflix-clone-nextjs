@@ -16,7 +16,7 @@ export const Wrapper = styled.div<Pick<CardProps, "posterHorizontal">>`
       width: 356px;
       top: -80%;
       /* height: 371px; */
-      z-index: 5;
+      /* z-index: 2; */
       height: auto;
       ${DataContainer}{
         min-height: 170px;
@@ -158,7 +158,7 @@ export const Info = styled.div`
       left: 66%;
       display: none;
       cursor: pointer;
-      pointer-events: none;
+      /* pointer-events: none; */
       > svg{
         position: absolute;
         fill: white;

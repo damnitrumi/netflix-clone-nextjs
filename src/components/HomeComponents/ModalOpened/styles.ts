@@ -13,6 +13,8 @@ export const Wrapper = styled.div<Pick<ModalOpenedProps, "showModal">>`
     padding: 30px 15px;
     transition: transform 100ms ease-in;
     transform: scale(${showModal ? 1 : 0});
+    /* z-index: 3; */
+    background-color: white;
 
     &::-webkit-scrollbar{
       display: none;
@@ -51,6 +53,7 @@ export const VideoContainer = styled.div<Pick<CardProps, "posterHorizontal">>`
     position: relative;
     border-radius: 5px 5px 0 0;
     margin-bottom: 20px;
+    overflow: hidden;
     iframe{
       position: absolute;
       /* top: 0;
@@ -72,7 +75,7 @@ export const CloseOption = styled.div`
   /* right: 5%; */
   top: 10px;
   /* top: 5%; */
-  z-index: 2;
+  z-index: 1;
   button{
     display: block;
     border: none;
@@ -94,7 +97,7 @@ export const LinkOption = styled.div`
     bottom: 15%;
     left: 50px;
     /* left: 3%; */
-    z-index: 2;
+    z-index: 1;
     box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
 
     a{

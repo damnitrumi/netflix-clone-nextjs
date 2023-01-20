@@ -7,10 +7,12 @@ import { Heading } from "components/Heading";
 import { MovieVideoMapped } from "utils/map-movies-videos";
 import { TvShowsVideoMapped } from "utils/map-tv-shows-videos";
 import { YouMayAlsoLikeModal } from "../YouMayAlsoLikeModal";
+import { useRouter } from "next/router";
 
 export type ModalOpenedProps = {
   handleModalClick: () => void;
   showModal: boolean;
+  id: number;
   title: string;
   posterHorizontal: string;
   videoUrl: string;
@@ -22,6 +24,7 @@ export type ModalOpenedProps = {
 export const ModalOpened = ({
   handleModalClick,
   showModal,
+  id,
   title,
   posterHorizontal,
   videoUrl,
@@ -29,6 +32,17 @@ export const ModalOpened = ({
   overview,
   similar,
 }: ModalOpenedProps) => {
+  const router = useRouter();
+
+  const handleWatchClick = (e) => {
+    e.preventDefault();
+
+    router.push({
+      pathname: "/watch/",
+      query: { trackId: id },
+    });
+  };
+
   return (
     <Styled.Wrapper showModal={showModal}>
       <Styled.Modal>
@@ -39,14 +53,14 @@ export const ModalOpened = ({
             </button>
           </Styled.CloseOption>
           <Styled.LinkOption>
-            <Link href="/" legacyBehavior>
-              <a>
+            <Link href="/" legacyBehavior passHref>
+              <a onClick={handleWatchClick}>
                 <Play size="25px" />
                 Assistir
               </a>
             </Link>
           </Styled.LinkOption>
-          <iframe src={videoUrl} allow="autoplay"></iframe>
+          {showModal && <iframe src={videoUrl} allow="autoplay"></iframe>}
         </Styled.VideoContainer>
         <Heading size="2.5rem">{title}</Heading>
         <Styled.AgeRatingContainer>
