@@ -12,6 +12,7 @@ export const theme = {
     netflixErrorColor: "#e87c03",
     netflixHomeBgColor: "#141414",
     netflixScoreColor: "#46d369",
+    netflixMayLikeBg: "#2f2f2f",
   },
   font: {
     family: {

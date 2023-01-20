@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
     z-index: -1;
 
     > div{
-      height: 1108px;
+      height: 1098px;
       position: relative;
     }
     img{
