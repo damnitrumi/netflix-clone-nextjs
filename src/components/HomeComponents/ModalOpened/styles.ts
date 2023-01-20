@@ -1,9 +1,24 @@
 import styled, { css } from "styled-components";
+import { ModalOpenedProps } from ".";
 import { CardProps } from "../Card";
 
-export const Wrapper = styled.div`
-  ${() => css`
+export const Wrapper = styled.div<Pick<ModalOpenedProps, "showModal">>`
+  ${({ showModal }) => css`
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
     padding: 30px 15px;
+    transition: transform 100ms ease-in;
+    transform: scale(${showModal ? 1 : 0});
+
+    &::-webkit-scrollbar{
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   `}
 `;
 
@@ -142,17 +157,19 @@ export const AgeRating = styled.div`
 
 export const YouMayAlsoLikeWrapper = styled.div`
   ${() => css`
-    padding: 0 50px;
-    margin-bottom: 10px;
+    padding: 0 50px 10px;
 
     h2{
       font-family: Netflix-Medium;
       font-weight: 500;
+      margin-bottom: 10px;
     }
   `}
 `;
 export const YouMayAlsoLike = styled.div`
   ${() => css`
-    padding: 0 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
   `}
 `;

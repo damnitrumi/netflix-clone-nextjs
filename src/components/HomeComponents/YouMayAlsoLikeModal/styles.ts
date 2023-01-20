@@ -5,7 +5,6 @@ export const Wrapper = styled.a`
   ${({ theme }) => css`
     display: block;
     max-width: 240px;
-    margin: 0 auto;
     background-color: ${theme.colors.netflixMayLikeBg};
     text-decoration: none;
     border-radius: 5px;

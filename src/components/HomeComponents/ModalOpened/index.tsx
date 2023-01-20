@@ -4,28 +4,37 @@ import { Play } from "@styled-icons/fa-solid";
 import { Close } from "@styled-icons/material";
 import { Text } from "components/Text";
 import { Heading } from "components/Heading";
+import { MovieVideoMapped } from "utils/map-movies-videos";
+import { TvShowsVideoMapped } from "utils/map-tv-shows-videos";
+import { YouMayAlsoLikeModal } from "../YouMayAlsoLikeModal";
 
 export type ModalOpenedProps = {
+  handleModalClick: () => void;
+  showModal: boolean;
   title: string;
   posterHorizontal: string;
   videoUrl: string;
   score: string;
   overview: string;
+  similar: MovieVideoMapped[] | TvShowsVideoMapped[];
 };
 
 export const ModalOpened = ({
+  handleModalClick,
+  showModal,
   title,
   posterHorizontal,
   videoUrl,
   score,
   overview,
+  similar,
 }: ModalOpenedProps) => {
   return (
-    <Styled.Wrapper>
+    <Styled.Wrapper showModal={showModal}>
       <Styled.Modal>
         <Styled.VideoContainer posterHorizontal={posterHorizontal}>
           <Styled.CloseOption>
-            <button onClick={() => console.log("Botão do modal")}>
+            <button onClick={handleModalClick}>
               <Close size="25px" />
             </button>
           </Styled.CloseOption>
@@ -72,6 +81,20 @@ export const ModalOpened = ({
           <Heading as="h2" size="2.2rem">
             Títulos semelhantes
           </Heading>
+          <Styled.YouMayAlsoLike>
+            {similar.map((el) => {
+              return (
+                <YouMayAlsoLikeModal
+                  key={el.id}
+                  id={el.id}
+                  title={el.title}
+                  voteAverage={el.voteAverage}
+                  overview={el.overview}
+                  posterHorizontal={el.posterHorizontal}
+                />
+              );
+            })}
+          </Styled.YouMayAlsoLike>
         </Styled.YouMayAlsoLikeWrapper>
       </Styled.Modal>
     </Styled.Wrapper>

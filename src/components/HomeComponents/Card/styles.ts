@@ -157,6 +157,8 @@ export const Info = styled.div`
       top: 45%;
       left: 66%;
       display: none;
+      cursor: pointer;
+      pointer-events: none;
       > svg{
         position: absolute;
         fill: white;

@@ -5,6 +5,7 @@ import { ArrowDropDown } from "@styled-icons/material";
 import Link from "next/link";
 import { Text } from "components/Text";
 import { useState } from "react";
+import { ModalOpened } from "../ModalOpened";
 
 export type CardProps = {
   posterHorizontal: string;
@@ -18,11 +19,17 @@ export const Card = ({
   videoUrl,
 }: CardProps) => {
   const [visible, setVisible] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const imgUrl = `${process.env.NEXT_PUBLIC_IMAGE_URL}${posterHorizontal}`;
   const score =
     voteAverage.toFixed(1).toString().replace(".", "") + "% relevante";
   const videoLink = `http://www.youtube.com/embed${videoUrl}?autoplay=1&mute=1&fs=0`;
+
+  const handleModalClick = () => {
+    console.log("Deu certo");
+    setShowModal((v) => !v);
+  };
 
   return (
     <Styled.Wrapper
@@ -33,6 +40,7 @@ export const Card = ({
       onMouseOut={() => {
         setVisible(false);
       }}
+      onClick={handleModalClick}
     >
       <Styled.Modal>
         <Styled.VideoContainer posterHorizontal={imgUrl}>
