@@ -13,8 +13,8 @@ export const Wrapper = styled.div<Pick<ModalOpenedProps, "showModal">>`
     padding: 30px 15px;
     transition: transform 100ms ease-in;
     transform: scale(${showModal ? 1 : 0});
-    /* z-index: 3; */
-    background-color: white;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.5);
 
     &::-webkit-scrollbar{
       display: none;

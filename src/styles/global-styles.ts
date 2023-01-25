@@ -17,6 +17,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: Netflix;
     font-weight: 400;
     background-color: black;
+    overflow-x: hidden;
   }
 
   img{

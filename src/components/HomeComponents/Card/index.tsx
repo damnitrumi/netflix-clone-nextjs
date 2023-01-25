@@ -4,10 +4,10 @@ import { PlayCircleFill, ChevronDown } from "@styled-icons/bootstrap";
 import { ArrowDropDown } from "@styled-icons/material";
 import Link from "next/link";
 import { Text } from "components/Text";
-import { useState } from "react";
-import { ModalOpened } from "../ModalOpened";
+import { useState, useEffect } from "react";
 import { MovieVideoMapped } from "utils/map-movies-videos";
 import { TvShowsVideoMapped } from "utils/map-tv-shows-videos";
+import { useModalContext } from "components/contexts/ModalContext";
 
 export type CardProps = {
   id: number;
@@ -29,23 +29,34 @@ export const Card = ({
   similar,
 }: CardProps) => {
   const [visible, setVisible] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+
+  const [, , handleModalData, handleOpenBiggerModalClick] = useModalContext();
 
   const imgUrl = `${process.env.NEXT_PUBLIC_IMAGE_URL}${posterHorizontal}`;
   const score =
     voteAverage.toFixed(1).toString().replace(".", "") + "% relevante";
   const videoLink = `http://www.youtube.com/embed${videoUrl}?autoplay=1&mute=1&fs=0`;
 
+  const ModalData = {
+    id,
+    title,
+    posterHorizontal: imgUrl,
+    videoUrl: videoLink,
+    score,
+    overview,
+    similar,
+  };
+
   const handleModalClick = () => {
     console.log("Abri/Fechei o Modal");
     setVisible(false);
-    setShowModal(true);
+    handleModalData(ModalData);
+    handleOpenBiggerModalClick();
   };
 
-  const handleModalCloseClick = () => {
-    console.log("To fechando o modal");
-    setShowModal(false);
-  };
+  useEffect(() => {
+    console.log(visible);
+  }, [visible]);
 
   return (
     <>
@@ -53,9 +64,11 @@ export const Card = ({
         posterHorizontal={imgUrl}
         onMouseOver={() => {
           setVisible(true);
+          console.log("To visivel");
         }}
         onMouseOut={() => {
           setVisible(false);
+          console.log("To invisivel");
         }}
       >
         <Styled.Modal>
@@ -109,17 +122,6 @@ export const Card = ({
           </Styled.DataContainer>
         </Styled.Modal>
       </Styled.Wrapper>
-      <ModalOpened
-        id={id}
-        title={title}
-        posterHorizontal={imgUrl}
-        videoUrl={videoLink}
-        score={score}
-        overview={overview}
-        similar={similar}
-        showModal={showModal}
-        handleModalClick={handleModalCloseClick}
-      />
     </>
   );
 };

@@ -9,6 +9,8 @@ import { mapTvShows, TvShowRaw } from "utils/map-tv-shows";
 import { mapTvShowsSimilar } from "utils/map-tv-shows-similar";
 import { mapTvShowsVideo } from "utils/map-tv-shows-videos";
 import { mapMoviesVideo } from "utils/map-movies-videos";
+import { Carousel } from "components/HomeComponents/Carousel";
+import { ModalOpened } from "components/HomeComponents/ModalOpened";
 
 export type MoviesRawData = {
   page: number;
@@ -117,7 +119,12 @@ export default function Index() {
     load();
   }, []);
 
-  return <Login />;
+  return (
+    <>
+      <Carousel />
+      <ModalOpened />
+    </>
+  );
 }
 // export default function Index() {
 //   const { data: session } = useSession();

@@ -8,16 +8,15 @@ export const Wrapper = styled.div<Pick<CardProps, "posterHorizontal">>`
     aspect-ratio: 16 / 9;
     background-image: url(${posterHorizontal});
     background-size: cover;
-    /* transition: all 100ms ease-in; */
     position: relative;
     border-radius: 5px;
+
     &:hover ${Modal}{
       visibility: visible;
       width: 356px;
       top: -80%;
-      /* height: 371px; */
-      /* z-index: 2; */
       height: auto;
+      z-index: 1;
       ${DataContainer}{
         min-height: 170px;
         opacity: 1;
@@ -39,7 +38,6 @@ export const Modal = styled.div`
     transition: all 300ms ease-in;
     box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
     border-radius: 5px;
-    /* overflow: hidden; */
   `}
 `;
 
@@ -52,10 +50,6 @@ export const VideoContainer = styled.div<Pick<CardProps, "posterHorizontal">>`
     position: relative;
     iframe{
       position: absolute;
-      /* top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0; */
       width: 100%;
       height: 100%;
       border: none;
@@ -73,6 +67,7 @@ export const DataContainer = styled.div`
     justify-content: space-between;
     ${Heading}{
       text-align: center;
+      pointer-events: none;
     }
 
     > p{
@@ -98,8 +93,6 @@ export const Controls = styled.div`
       content: '';
       display: none;
       border-radius: 50%;
-      /* width: 100%;
-      height: 100%; */
       background-color: rgba(0, 0, 0, 0.1);
       position: absolute;
       top: 0;
@@ -142,6 +135,7 @@ export const AgeRatingContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;
+  padding-left: 2px;
   p{
     line-height: 1;
   }
@@ -158,7 +152,6 @@ export const Info = styled.div`
       left: 66%;
       display: none;
       cursor: pointer;
-      /* pointer-events: none; */
       > svg{
         position: absolute;
         fill: white;
