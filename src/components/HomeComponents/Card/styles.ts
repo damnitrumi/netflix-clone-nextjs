@@ -4,12 +4,14 @@ import { Title as Heading } from "../../Heading/styles";
 
 export const Wrapper = styled.div<Pick<CardProps, "posterHorizontal">>`
   ${({ posterHorizontal }) => css`
-    width: 237px;
+    width: 100%;
+    max-width: 237px;
+    /* width: 237px; */
     aspect-ratio: 16 / 9;
     background-image: url(${posterHorizontal});
     background-size: cover;
     position: relative;
-    border-radius: 5px;
+    border-radius: 2px;
 
     &:hover ${Modal}{
       visibility: visible;
@@ -18,10 +20,9 @@ export const Wrapper = styled.div<Pick<CardProps, "posterHorizontal">>`
       height: auto;
       z-index: 1;
       ${DataContainer}{
-        min-height: 170px;
+        /* min-height: 170px; */
         opacity: 1;
       }
-
     }
   `}
 `;
@@ -37,7 +38,7 @@ export const Modal = styled.div`
     visibility: hidden;
     transition: all 300ms ease-in;
     box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
-    border-radius: 5px;
+    border-radius: 2px;
   `}
 `;
 
@@ -46,7 +47,7 @@ export const VideoContainer = styled.div<Pick<CardProps, "posterHorizontal">>`
     aspect-ratio: 16 / 9;
     background-image: url(${posterHorizontal});
     background-size: cover;
-    border-radius: 5px 5px 0 0;
+    border-radius: 2px 2px 0 0;
     position: relative;
     iframe{
       position: absolute;
@@ -59,7 +60,7 @@ export const VideoContainer = styled.div<Pick<CardProps, "posterHorizontal">>`
 export const DataContainer = styled.div`
   ${({ theme }) => css`
     transition: all 300ms ease-in;
-    min-height: 0px;
+    /* min-height: 0px; */
     opacity: 0;
     padding: 15px;
     display: flex;
@@ -143,7 +144,7 @@ export const AgeRatingContainer = styled.div`
 
 export const Info = styled.div`
   ${() => css`
-      border-radius: 5px;
+      border-radius: 2px;
       padding: 10px 20px;
       background-color: white;
       position: absolute;

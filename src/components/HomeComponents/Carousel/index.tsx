@@ -1404,7 +1404,7 @@ export const Carousel = ({ title }: CarouselProps) => {
     <Styled.Wrapper>
       <Swiper
         slidesPerView={6}
-        spaceBetween={10}
+        spaceBetween={3}
         slidesPerGroup={6}
         loop={true}
         loopFillGroupWithBlank={false}
