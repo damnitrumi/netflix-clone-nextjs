@@ -5,8 +5,7 @@ import { Title as Heading } from "../../Heading/styles";
 export const Wrapper = styled.div<Pick<CardProps, "posterHorizontal">>`
   ${({ posterHorizontal }) => css`
     width: 100%;
-    max-width: 237px;
-    /* width: 237px; */
+    /* max-width: 237px; */
     aspect-ratio: 16 / 9;
     background-image: url(${posterHorizontal});
     background-size: cover;
@@ -20,7 +19,7 @@ export const Wrapper = styled.div<Pick<CardProps, "posterHorizontal">>`
       height: auto;
       z-index: 1;
       ${DataContainer}{
-        /* min-height: 170px; */
+        min-height: 170px;
         opacity: 1;
       }
     }

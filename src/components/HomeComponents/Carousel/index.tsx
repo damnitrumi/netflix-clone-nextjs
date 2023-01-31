@@ -1408,9 +1408,9 @@ export const Carousel = ({ title }: CarouselProps) => {
         slidesPerGroup={6}
         loop={true}
         loopFillGroupWithBlank={false}
-        // pagination={{
-        //   clickable: true,
-        // }}
+        pagination={{
+          clickable: false,
+        }}
         navigation={true}
         modules={[Pagination, Navigation]}
         className="mySwiper"
