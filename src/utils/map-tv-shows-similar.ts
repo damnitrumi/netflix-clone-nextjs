@@ -2,7 +2,7 @@ import { TvShowsRawData } from "pages";
 import { mapTvShows } from "./map-tv-shows";
 import { mapTvShowsVideo, TvShowsVideoMapped } from "./map-tv-shows-videos";
 
-type TvShowsComplete = {
+export type TvShowsComplete = {
   id: number;
   title: string;
   overview: string;

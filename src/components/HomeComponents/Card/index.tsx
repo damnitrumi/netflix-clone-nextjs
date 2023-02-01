@@ -19,7 +19,7 @@ export type CardProps = {
   videoUrl: string;
   voteAverage: number;
   overview: string;
-  similar: MovieVideoMapped[] | TvShowsVideoMapped[];
+  similar: MovieVideoMapped[] | TvShowsVideoMapped[] | string;
 };
 
 export const Card = ({
@@ -38,7 +38,7 @@ export const Card = ({
   const imgUrl = `${process.env.NEXT_PUBLIC_IMAGE_URL}${posterHorizontal}`;
   const score =
     voteAverage.toFixed(1).toString().replace(".", "") + "% relevante";
-  const videoLink = `http://www.youtube.com/embed${videoUrl}?autoplay=1&mute=1&fs=0`;
+  const videoLink = `http://www.youtube.com/embed/${videoUrl}?autoplay=1&mute=1&fs=0`;
 
   const ModalData = {
     id,
@@ -74,7 +74,7 @@ export const Card = ({
           {visible && <iframe src={videoLink} allow="autoplay"></iframe>}
         </Styled.VideoContainer>
         <Styled.DataContainer>
-          <Heading size="1.6rem">Puss in Boots: The Last Wish</Heading>
+          <Heading size="1.6rem">{title}</Heading>
           <Styled.Controls>
             <Link href="/" legacyBehavior>
               <a>

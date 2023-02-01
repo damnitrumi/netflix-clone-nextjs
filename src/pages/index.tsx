@@ -23,6 +23,8 @@ export type TvShowsRawData = {
   results: TvShowRaw[];
 };
 
+import mock from "../components/HomeComponents/Carousel/mock";
+
 export default function Index() {
   // useEffect(() => {
   //   const load = async () => {
@@ -122,7 +124,7 @@ export default function Index() {
 
   return (
     <>
-      <Carousel />
+      <Carousel dataArray={mock} />
       <ModalOpened />
     </>
   );

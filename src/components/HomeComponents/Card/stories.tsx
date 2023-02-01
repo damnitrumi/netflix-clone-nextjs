@@ -8,7 +8,7 @@ export default {
     id: 315162,
     title: "Puss in Boots: The Last Wish",
     posterHorizontal: "/r9PkFnRUIthgBp2JZZzD380MWZy.jpg",
-    videoUrl: "/RqrXhwS33yc",
+    videoUrl: "RqrXhwS33yc",
     voteAverage: 1.589,
     overview:
       "Puss in Boots discovers that his passion for adventure has taken its toll: He has burned through eight of his nine lives, leaving him with only one life left. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.",
@@ -79,6 +79,7 @@ export const Template: Story<CardProps> = (args) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        maxWidth: "237px",
       }}
     >
       <Card {...args} />

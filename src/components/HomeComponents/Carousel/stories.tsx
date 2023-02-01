@@ -1,9 +1,13 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
 import { Carousel, CarouselProps } from ".";
+import mock from "./mock";
 
 export default {
   title: "Carousel",
   component: Carousel,
+  args: {
+    dataArray: mock,
+  },
   parameters: {
     backgrounds: {
       default: "light",

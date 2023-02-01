@@ -2,7 +2,7 @@ import { MoviesRawData } from "pages";
 import { mapMovies } from "./map-movies";
 import { mapMoviesVideo, MovieVideoMapped } from "./map-movies-videos";
 
-type MoviesComplete = {
+export type MoviesComplete = {
   id: number;
   title: string;
   overview: string;
