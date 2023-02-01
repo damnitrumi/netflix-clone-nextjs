@@ -9,6 +9,7 @@ import { TvShowsVideoMapped } from "utils/map-tv-shows-videos";
 import { YouMayAlsoLikeModal } from "../YouMayAlsoLikeModal";
 import { useRouter } from "next/router";
 import { useModalContext } from "components/contexts/ModalContext";
+import { FormEvent } from "react";
 
 // export type ModalOpenedProps = {
 //   handleModalClick: () => void;
@@ -55,7 +56,7 @@ export const ModalOpened = () => {
 
   console.log(posterHorizontal);
 
-  const handleWatchClick = (e) => {
+  const handleWatchClick = (e: FormEvent<HTMLElement>) => {
     e.preventDefault();
 
     router.push({
