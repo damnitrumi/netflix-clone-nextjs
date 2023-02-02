@@ -24,6 +24,7 @@ export type TvShowsRawData = {
 };
 
 import mock from "../components/HomeComponents/Carousel/mock";
+import { Hero } from "components/HomeComponents/Hero";
 
 export default function Index() {
   // useEffect(() => {
@@ -124,6 +125,7 @@ export default function Index() {
 
   return (
     <>
+      <Hero dataArray={mock} />
       <Carousel dataArray={mock} />
       <ModalOpened />
     </>

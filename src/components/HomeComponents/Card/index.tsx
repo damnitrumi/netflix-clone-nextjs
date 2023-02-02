@@ -38,9 +38,9 @@ export const Card = ({
   const imgUrl = `${process.env.NEXT_PUBLIC_IMAGE_URL}${posterHorizontal}`;
   const score =
     voteAverage.toFixed(1).toString().replace(".", "") + "% relevante";
-  const videoLink = `http://www.youtube.com/embed/${videoUrl}?autoplay=1&mute=1&fs=0`;
+  const videoLink = `http://www.youtube-nocookie.com/embed/${videoUrl}?autoplay=1&mute=1&fs=0`;
 
-  const ModalData = {
+  const modalData = {
     id,
     title,
     posterHorizontal: imgUrl,
@@ -51,9 +51,8 @@ export const Card = ({
   };
 
   const handleModalClick = () => {
-    console.log("Abri/Fechei o Modal");
     setVisible(false);
-    handleModalData(ModalData);
+    handleModalData(modalData);
     handleOpenBiggerModalClick();
   };
 
@@ -62,11 +61,9 @@ export const Card = ({
       posterHorizontal={imgUrl}
       onMouseOver={() => {
         setVisible(true);
-        // console.log("To visivel");
       }}
       onMouseOut={() => {
         setVisible(false);
-        // console.log("To invisivel");
       }}
     >
       <Styled.Modal>

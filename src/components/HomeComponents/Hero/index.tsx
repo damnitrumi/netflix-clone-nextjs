@@ -4,6 +4,9 @@ import { InfoCircle } from "@styled-icons/boxicons-regular";
 import Link from "next/link";
 import { MoviesComplete } from "utils/map-movies-similar";
 import { TvShowsComplete } from "utils/map-tv-shows-similar";
+import { useModalContext } from "components/contexts/ModalContext";
+
+import { useEffect, useState } from "react";
 
 export type HeroProps = {
   dataArray: MoviesComplete[] | TvShowsComplete[];
@@ -14,10 +17,17 @@ export type HeroPassingProps = {
 };
 
 export const Hero = ({ dataArray }: HeroProps) => {
-  const selectedIndex = Math.floor(Math.random() * 18);
-  const selectedObject = { ...dataArray[selectedIndex] };
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
-  // const hasVideo = Math.floor(Math.random() * 2);
+  useEffect(() => {
+    const selectedIndex = Math.floor(Math.random() * 18);
+    setSelectedIndex(selectedIndex);
+  }, []);
+
+  const [, showModal, handleModalData, handleOpenBiggerModalClick] =
+    useModalContext();
+
+  if (!selectedIndex) return <Styled.EmptyWrapper />;
 
   const {
     id,
@@ -27,23 +37,27 @@ export const Hero = ({ dataArray }: HeroProps) => {
     voteAverage,
     overview,
     similar,
-  } = selectedObject;
+  } = dataArray[selectedIndex];
 
   const imgUrl = `${process.env.NEXT_PUBLIC_IMAGE_URL}${posterHorizontal}`;
   const score =
     voteAverage.toFixed(1).toString().replace(".", "") + "% relevante";
-  const videoLink = `http://www.youtube.com/embed/${videoUrl}?autoplay=1&mute=1&fs=0&controls=0`;
+  const videoLink = `http://www.youtube-nocookie.com/embed/${videoUrl}?autoplay=1&mute=1&fs=0&controls=0`;
+  const videoLinkModal = `http://www.youtube-nocookie.com/embed/${videoUrl}?autoplay=1&mute=1&fs=0`;
 
-  // console.log(hasVideo);
-
-  const ModalData = {
+  const modalData = {
     id,
     title,
     posterHorizontal: imgUrl,
-    videoUrl: videoLink,
+    videoUrl: videoLinkModal,
     score,
     overview,
     similar,
+  };
+
+  const handleModalClick = () => {
+    handleModalData(modalData);
+    handleOpenBiggerModalClick();
   };
 
   return (
@@ -56,11 +70,11 @@ export const Hero = ({ dataArray }: HeroProps) => {
           </a>
         </Link>
       </Styled.LinkOption>
-      <Styled.MoreInfo>
+      <Styled.MoreInfo onClick={handleModalClick}>
         <InfoCircle size="25px" />
         Mais Informações
       </Styled.MoreInfo>
-      <iframe src={videoLink} allow="autoplay"></iframe>
+      {!showModal && <iframe src={videoLink} allow="autoplay"></iframe>}
     </Styled.Wrapper>
   );
 };

@@ -1,6 +1,14 @@
 import styled, { css } from "styled-components";
 import { HeroPassingProps } from ".";
 
+export const EmptyWrapper = styled.div`
+  ${() => css`
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: black;
+  `}
+`;
+
 export const Wrapper = styled.div<HeroPassingProps>`
   ${({ posterHorizontal }) => css`
     max-width: 100%;

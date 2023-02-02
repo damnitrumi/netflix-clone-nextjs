@@ -7,39 +7,19 @@ type ModalContextProviderProps = {
   children: React.ReactNode;
 };
 
-const initialModalData = {
-  id: 315162,
-  title: "no-data",
-  posterHorizontal: "no-data",
-  videoUrl: "no-data",
-  score: "no-data",
-  overview: "no-data",
-  similar: [
-    {
-      id: 315162,
-      title: "no-data",
-      posterHorizontal: "no-data",
-      voteAverage: 9.789,
-      overview: "no-data",
-    },
-  ],
-};
-
 export const ModalContextProvider = ({
   children,
 }: ModalContextProviderProps) => {
   const [showModal, setShowModal] = useState(false);
-  const [modalData, setModalData] = useState(initialModalData);
+  const [modalData, setModalData] = useState(null);
 
   //Card
   const handleOpenBiggerModalClick = () => {
-    console.log("Abri/Fechei o Modal");
     setShowModal(true);
   };
 
   //ModalMaior
   const handleCloseModalClick = () => {
-    console.log("To fechando o modal");
     setShowModal(false);
   };
 
