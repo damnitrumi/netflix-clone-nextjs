@@ -6,6 +6,7 @@ export default {
   title: "Carousel",
   component: Carousel,
   args: {
+    title: "Popular",
     dataArray: mock,
   },
   parameters: {

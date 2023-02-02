@@ -10,7 +10,7 @@ export type TvShowsComplete = {
   posterHorizontal: string;
   voteAverage: number;
   videoUrl: string;
-  similar: TvShowsVideoMapped[] | string;
+  similar: TvShowsVideoMapped[] | null;
 };
 
 export const mapTvShowsSimilar = async (
@@ -26,7 +26,7 @@ export const mapTvShowsSimilar = async (
       if (similarDataJson.results.length == 0) {
         return {
           ...el,
-          similar: "no-similar",
+          similar: null,
         };
       }
 

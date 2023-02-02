@@ -31,6 +31,7 @@ export const Modal = styled.div`
     background-color: ${theme.colors.netflixHomeBgColor};
     box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
     border-radius: 5px ;
+    padding-bottom: 20px;
 
     > p{
       padding: 0 50px;

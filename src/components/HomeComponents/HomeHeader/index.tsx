@@ -63,7 +63,7 @@ export const HomeHeader = () => {
       <button onClick={handleMenuClick}>
         <Menu size="35px" />
       </button>
-      <Link href="/browse">
+      <Link href="/browse" legacyBehavior>
         <a>
           <span>
             <svg viewBox="0 0 111 30" data-uia="netflix-logo" focusable="false">
@@ -166,14 +166,14 @@ export const HomeHeader = () => {
               <ArrowDropDown size="35px" className="right-list-arrow" />
 
               <li>
-                <Link href="/">
+                <Link href="/" legacyBehavior>
                   <a>
                     <Pencil size="20px" /> Gerenciar perfis
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href="/">
+                <Link href="/" legacyBehavior>
                   <a>
                     <Profile size="20px" />
                     Transferir perfil
@@ -181,7 +181,7 @@ export const HomeHeader = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/">
+                <Link href="/" legacyBehavior>
                   <a>
                     <User size="20px" />
                     Conta
@@ -189,7 +189,7 @@ export const HomeHeader = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/">
+                <Link href="/" legacyBehavior>
                   <a>
                     <HelpCircle size="20px" />
                     Central de Ajuda

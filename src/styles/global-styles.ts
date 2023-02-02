@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { theme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -16,7 +17,8 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 1.6rem;
     font-family: Netflix;
     font-weight: 400;
-    background-color: black;
+    /* background-color: black; */
+    background-color: ${theme.colors.netflixHomeBgColor};
     overflow-x: hidden;
   }
 

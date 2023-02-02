@@ -27,10 +27,12 @@ export const ModalOpened = () => {
 
   const [modalData, showModal, , , handleCloseModalClick] = useModalContext();
 
-  if (!modalData) return false;
+  if (!modalData) return null;
 
   const { id, title, posterHorizontal, videoUrl, score, overview, similar } =
     modalData;
+
+  console.log(similar);
 
   const handleWatchClick = (e: FormEvent<HTMLElement>) => {
     e.preventDefault();
@@ -89,25 +91,27 @@ export const ModalOpened = () => {
           </Styled.AgeRating>
         </Styled.AgeRatingContainer>
         <Text>{overview}</Text>
-        <Styled.YouMayAlsoLikeWrapper>
-          <Heading as="h2" size="2.2rem">
-            Títulos semelhantes
-          </Heading>
-          <Styled.YouMayAlsoLike>
-            {similar.map((el) => {
-              return (
-                <YouMayAlsoLikeModal
-                  key={el.id}
-                  id={el.id}
-                  title={el.title}
-                  voteAverage={el.voteAverage}
-                  overview={el.overview}
-                  posterHorizontal={el.posterHorizontal}
-                />
-              );
-            })}
-          </Styled.YouMayAlsoLike>
-        </Styled.YouMayAlsoLikeWrapper>
+        {similar && (
+          <Styled.YouMayAlsoLikeWrapper>
+            <Heading as="h2" size="2.2rem">
+              Títulos semelhantes
+            </Heading>
+            <Styled.YouMayAlsoLike>
+              {similar.map((el) => {
+                return (
+                  <YouMayAlsoLikeModal
+                    key={el.id}
+                    id={el.id}
+                    title={el.title}
+                    voteAverage={el.voteAverage}
+                    overview={el.overview}
+                    posterHorizontal={el.posterHorizontal}
+                  />
+                );
+              })}
+            </Styled.YouMayAlsoLike>
+          </Styled.YouMayAlsoLikeWrapper>
+        )}
       </Styled.Modal>
     </Styled.Wrapper>
   );

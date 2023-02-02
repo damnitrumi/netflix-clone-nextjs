@@ -8,35 +8,40 @@ import "swiper/css/scrollbar";
 import { Card } from "../Card";
 import { MoviesComplete } from "utils/map-movies-similar";
 import { TvShowsComplete } from "utils/map-tv-shows-similar";
+import { Heading } from "components/Heading";
 
 export type CarouselProps = {
+  title: string;
   dataArray: MoviesComplete[] | TvShowsComplete[];
 };
 
-export const Carousel = ({ dataArray }: CarouselProps) => {
+export const Carousel = ({ title, dataArray }: CarouselProps) => {
   return (
     <Styled.Wrapper>
-      <Swiper
-        slidesPerView={6}
-        spaceBetween={3}
-        slidesPerGroup={6}
-        loop={true}
-        loopFillGroupWithBlank={false}
-        pagination={{
-          clickable: false,
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-        className="mySwiper"
-      >
-        {dataArray.map((el, i) => {
-          return (
-            <SwiperSlide key={i}>
-              <Card {...el} />
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+      <Heading size="2.2rem">{title}</Heading>
+      <Styled.Container>
+        <Swiper
+          slidesPerView={6}
+          spaceBetween={3}
+          slidesPerGroup={6}
+          loop={true}
+          loopFillGroupWithBlank={false}
+          pagination={{
+            clickable: false,
+          }}
+          navigation={true}
+          modules={[Pagination, Navigation]}
+          className="mySwiper"
+        >
+          {dataArray.map((el, i) => {
+            return (
+              <SwiperSlide key={i}>
+                <Card {...el} />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </Styled.Container>
     </Styled.Wrapper>
   );
 };

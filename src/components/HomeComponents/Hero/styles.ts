@@ -18,6 +18,7 @@ export const Wrapper = styled.div<HeroPassingProps>`
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
+    margin-bottom: 10px;
     iframe{
       position: absolute;
       /* top: 0;
@@ -27,6 +28,8 @@ export const Wrapper = styled.div<HeroPassingProps>`
       width: 100%;
       height: 100%;
       border: none;
+      pointer-events: none;
+
     }
 
   `}
@@ -36,10 +39,10 @@ export const LinkOption = styled.div`
   ${({ theme }) => css`
     position: absolute;
     bottom: 25%;
-    left: 50px;
-    /* left: 3%; */
+    /* left: 50px; */
+    left: 4%;
     z-index: 1;
-    box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
+    /* box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px; */
 
     a{
       position: relative;
@@ -48,7 +51,7 @@ export const LinkOption = styled.div`
       max-width: max-content;
       align-items: center;
       gap: 10px;
-      min-height: 32px;
+      min-height: 48px;
       background-color: ${theme.colors.netflixTextColor};
       text-decoration: none;
       color: ${theme.colors.netflixBackGround};
@@ -83,39 +86,30 @@ export const MoreInfo = styled.button`
     border: none;
     outline: none;
     color: ${theme.colors.netflixTextColor};
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.3);
     font-family: Netflix-Medium;
     display: flex;
     align-items: center;
     max-width: max-content;
-    min-height: 32px;
+    min-height: 48px;
     gap: 10px;
     padding: 8px 25px;
     font-size: 2rem;
     border-radius: 5px;
     position: absolute;
     bottom: 25%;
-    left: 215px;
+    /* left: 215px; */
+    left: 14.5%;
     z-index: 1;
-    box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
+    /* box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px; */
     cursor: pointer;
 
-    &:before{
-      content: '';
-      display: none;
-      border-radius: 5px;
-      /* width: 100%;
-      height: 100%; */
-      background-color: rgba(0, 0, 0, 0.1);
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-    }
 
-    &:hover:before{
-      display: block;
+
+    &:hover{
+      /* background-color: rgba(255, 255, 255, 0.2); */
+      background-color: rgba(0, 0, 0, 0.3);
+
     }
   `}
 `;

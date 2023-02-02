@@ -10,7 +10,7 @@ export type MoviesComplete = {
   posterHorizontal: string;
   voteAverage: number;
   videoUrl: string;
-  similar: MovieVideoMapped[] | string;
+  similar: MovieVideoMapped[] | null;
 };
 
 export const mapSimilar = async (
@@ -26,7 +26,7 @@ export const mapSimilar = async (
       if (similarDataJson.results.length == 0) {
         return {
           ...el,
-          similar: "no-similar",
+          similar: null,
         };
       }
 

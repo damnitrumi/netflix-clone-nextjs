@@ -1,10 +1,26 @@
 import styled, { css } from "styled-components";
 
+import { Title as Heading } from "../../Heading/styles";
+
 export const Wrapper = styled.div`
+  ${({ theme }) => css`
+  margin-bottom: 20px;
+  position: relative;
+
+  &:hover{
+    z-index: 2;
+  }
+    > ${Heading}{
+        color: ${theme.colors.netflixTextColor};
+        margin-bottom: 10px;
+        padding-left: 4%;
+      }
+  `}
+`;
+
+export const Container = styled.div`
   ${() => css`
-
-
-    margin-top: 110px;
+    /* margin-top: 110px; */
 
     .mySwiper{
       overflow: visible;
