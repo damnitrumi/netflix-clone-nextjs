@@ -23,6 +23,11 @@ export const YouMayAlsoLikeModal = ({
   const router = useRouter();
 
   const imgUrl = `${process.env.NEXT_PUBLIC_IMAGE_URL}${posterHorizontal}`;
+  const noImgUrl =
+    "https://images.unsplash.com/photo-1606937295547-bc0f668595b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80";
+
+  const hasImg = !imgUrl.includes("null");
+
   const score =
     voteAverage.toFixed(1).toString().replace(".", "") + "% relevante";
 
@@ -38,7 +43,7 @@ export const YouMayAlsoLikeModal = ({
   return (
     <Link href="/" legacyBehavior passHref>
       <Styled.Wrapper onClick={handleAlsoLikeClick}>
-        <Styled.ImageContainer posterHorizontal={imgUrl}>
+        <Styled.ImageContainer posterHorizontal={hasImg ? imgUrl : noImgUrl}>
           <Styled.PlayContainer>
             <Play size="30px" />
           </Styled.PlayContainer>

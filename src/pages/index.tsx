@@ -185,8 +185,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const popularMoviesWithVideos = await mapMoviesVideo(popularMoviesFiltered);
 
   const popularMoviesSimilar = await mapSimilar(popularMoviesWithVideos);
-  console.log("Popular Movies");
-  console.log(popularMoviesSimilar);
+  // console.log("Popular Movies");
+  // console.log(popularMoviesSimilar);
 
   //Top Rated Movies
   const topRatedMoviesUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=en-US&page=1`;
@@ -200,8 +200,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const topRatedMoviesWithVideos = await mapMoviesVideo(topRatedMoviesFiltered);
 
   const topRatedMoviesSimilar = await mapSimilar(topRatedMoviesWithVideos);
-  console.log("Top Rated Movies");
-  console.log(topRatedMoviesSimilar);
+  // console.log("Top Rated Movies");
+  // console.log(topRatedMoviesSimilar);
 
   //Popular Tv Shows
   const popularTvShowsUrl = `
@@ -221,8 +221,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const popularTvShowsSimilar = await mapTvShowsSimilar(
     popularTvShowsWithVideos,
   );
-  console.log("Popular Tv Shows");
-  console.log(popularTvShowsSimilar);
+  // console.log("Popular Tv Shows");
+  // console.log(popularTvShowsSimilar);
 
   //Top Rated Tv Shows
   const topRatedTvShowsUrl = `
@@ -242,8 +242,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const topRatedTvShowsSimilar = await mapTvShowsSimilar(
     topRatedTvShowsWithVideos,
   );
-  console.log("Top Rated Tv Shows");
-  console.log(topRatedTvShowsSimilar);
+  // console.log("Top Rated Tv Shows");
+  // console.log(topRatedTvShowsSimilar);
 
   //Trending
 
@@ -256,8 +256,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   const trendingTvShowsFiltered = await mapTrending(trendingTvShowsData);
 
-  console.log("Trending");
-  console.log(trendingTvShowsFiltered);
+  // console.log("Trending");
+  // console.log(trendingTvShowsFiltered);
   return {
     props: {
       popularMoviesSimilar,

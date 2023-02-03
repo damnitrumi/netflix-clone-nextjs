@@ -45,6 +45,8 @@ export const Hero = ({ dataArray }: HeroProps) => {
   const videoLink = `http://www.youtube-nocookie.com/embed/${videoUrl}?autoplay=1&mute=1&fs=0&controls=0`;
   const videoLinkModal = `http://www.youtube-nocookie.com/embed/${videoUrl}?autoplay=1&mute=1&fs=0`;
 
+  const hasVideo = !videoLink.includes("no-url");
+
   const modalData = {
     id,
     title,
@@ -74,7 +76,9 @@ export const Hero = ({ dataArray }: HeroProps) => {
         <InfoCircle size="25px" />
         Mais Informações
       </Styled.MoreInfo>
-      {!showModal && <iframe src={videoLink} allow="autoplay"></iframe>}
+      {!showModal && hasVideo && (
+        <iframe src={videoLink} allow="autoplay"></iframe>
+      )}
     </Styled.Wrapper>
   );
 };

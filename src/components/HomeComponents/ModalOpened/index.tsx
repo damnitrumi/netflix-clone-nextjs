@@ -32,7 +32,7 @@ export const ModalOpened = () => {
   const { id, title, posterHorizontal, videoUrl, score, overview, similar } =
     modalData;
 
-  console.log(similar);
+  const hasVideo = !videoUrl.includes("no-url");
 
   const handleWatchClick = (e: FormEvent<HTMLElement>) => {
     e.preventDefault();
@@ -60,7 +60,9 @@ export const ModalOpened = () => {
               </a>
             </Link>
           </Styled.LinkOption>
-          {showModal && <iframe src={videoUrl} allow="autoplay"></iframe>}
+          {showModal && hasVideo && (
+            <iframe src={videoUrl} allow="autoplay"></iframe>
+          )}
         </Styled.VideoContainer>
         <Heading size="2.5rem">{title}</Heading>
         <Styled.AgeRatingContainer>

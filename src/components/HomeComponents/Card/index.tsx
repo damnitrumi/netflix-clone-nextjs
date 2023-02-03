@@ -36,14 +36,21 @@ export const Card = ({
   const [, , handleModalData, handleOpenBiggerModalClick] = useModalContext();
 
   const imgUrl = `${process.env.NEXT_PUBLIC_IMAGE_URL}${posterHorizontal}`;
+  const noImgUrl =
+    "https://images.unsplash.com/photo-1606937295547-bc0f668595b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80";
+
+  const hasImg = !imgUrl.includes("null");
+
   const score =
     voteAverage.toFixed(1).toString().replace(".", "") + "% relevante";
+
   const videoLink = `http://www.youtube-nocookie.com/embed/${videoUrl}?autoplay=1&mute=1&fs=0`;
+  const hasVideo = !videoLink.includes("no-url");
 
   const modalData = {
     id,
     title,
-    posterHorizontal: imgUrl,
+    posterHorizontal: hasImg ? imgUrl : noImgUrl,
     videoUrl: videoLink,
     score,
     overview,
@@ -58,7 +65,7 @@ export const Card = ({
 
   return (
     <Styled.Wrapper
-      posterHorizontal={imgUrl}
+      posterHorizontal={hasImg ? imgUrl : noImgUrl}
       onMouseOver={() => {
         setVisible(true);
       }}
@@ -67,8 +74,10 @@ export const Card = ({
       }}
     >
       <Styled.Modal>
-        <Styled.VideoContainer posterHorizontal={imgUrl}>
-          {visible && <iframe src={videoLink} allow="autoplay"></iframe>}
+        <Styled.VideoContainer posterHorizontal={hasImg ? imgUrl : noImgUrl}>
+          {visible && hasVideo && (
+            <iframe src={videoLink} allow="autoplay"></iframe>
+          )}
         </Styled.VideoContainer>
         <Styled.DataContainer>
           <Heading size="1.6rem">{title}</Heading>
