@@ -7,6 +7,8 @@ import { TvShowsComplete } from "utils/map-tv-shows-similar";
 import { useModalContext } from "components/contexts/ModalContext";
 
 import { useEffect, useState } from "react";
+import { Heading } from "components/Heading";
+import { Text } from "components/Text";
 
 export type HeroProps = {
   dataArray: MoviesComplete[] | TvShowsComplete[];
@@ -64,18 +66,24 @@ export const Hero = ({ dataArray }: HeroProps) => {
 
   return (
     <Styled.Wrapper posterHorizontal={imgUrl}>
-      <Styled.LinkOption>
-        <Link href="/" legacyBehavior passHref>
-          <a>
-            <Play size="25px" />
-            Assistir
-          </a>
-        </Link>
-      </Styled.LinkOption>
-      <Styled.MoreInfo onClick={handleModalClick}>
-        <InfoCircle size="25px" />
-        Mais Informações
-      </Styled.MoreInfo>
+      <Styled.MovieDetails>
+        <Heading>{title}</Heading>
+        <Text>{overview}</Text>
+      </Styled.MovieDetails>
+      <Styled.Options>
+        <Styled.LinkOption>
+          <Link href="/" legacyBehavior passHref>
+            <a>
+              <Play size="25px" />
+              Assistir
+            </a>
+          </Link>
+        </Styled.LinkOption>
+        <Styled.MoreInfo onClick={handleModalClick}>
+          <InfoCircle size="25px" />
+          Mais Informações
+        </Styled.MoreInfo>
+      </Styled.Options>
       {!showModal && hasVideo && (
         <iframe src={videoLink} allow="autoplay"></iframe>
       )}

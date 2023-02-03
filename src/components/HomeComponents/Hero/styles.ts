@@ -19,12 +19,18 @@ export const Wrapper = styled.div<HeroPassingProps>`
     background-repeat: no-repeat;
     position: relative;
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    padding-left: 4%;
+
     iframe{
       position: absolute;
-      /* top: 0;
+      top: 0;
       left: 0;
       bottom: 0;
-      right: 0; */
+      right: 0;
       width: 100%;
       height: 100%;
       border: none;
@@ -35,14 +41,21 @@ export const Wrapper = styled.div<HeroPassingProps>`
   `}
 `;
 
+export const Options = styled.div`
+  ${() => css`
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 10px;
+  `}
+`;
+
 export const LinkOption = styled.div`
   ${({ theme }) => css`
-    position: absolute;
+    /* position: absolute;
     bottom: 25%;
-    /* left: 50px; */
     left: 4%;
-    z-index: 1;
-    /* box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px; */
+    z-index: 1; */
 
     a{
       position: relative;
@@ -96,12 +109,10 @@ export const MoreInfo = styled.button`
     padding: 8px 25px;
     font-size: 2rem;
     border-radius: 5px;
-    position: absolute;
+    /* position: absolute;
     bottom: 25%;
-    /* left: 215px; */
     left: 14.5%;
-    z-index: 1;
-    /* box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px; */
+    z-index: 1; */
     cursor: pointer;
 
 
@@ -110,6 +121,20 @@ export const MoreInfo = styled.button`
       /* background-color: rgba(255, 255, 255, 0.2); */
       background-color: rgba(0, 0, 0, 0.3);
 
+    }
+  `}
+`;
+
+export const MovieDetails = styled.div`
+  ${() => css`
+    position: relative;
+    z-index: 1;
+    /* max-width: 35%; */
+    max-width: 532px;
+    /* padding-left: 4%; */
+    pointer-events: none;
+    h1{
+      margin-bottom: 20px;
     }
   `}
 `;
