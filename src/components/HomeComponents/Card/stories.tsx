@@ -80,6 +80,7 @@ export const Template: Story<CardProps> = (args) => {
         justifyContent: "center",
         alignItems: "center",
         maxWidth: "237px",
+        margin: "0 auto",
       }}
     >
       <Card {...args} />

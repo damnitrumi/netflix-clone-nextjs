@@ -69,6 +69,21 @@ export default {
           "Puss in Boots discovers that his passion for adventure has taken its toll: He has burned through eight of his nine lives, leaving him with only one life left. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.",
       },
     ],
+    svg: (
+      <svg
+        id="rank-1"
+        width="100%"
+        height="100%"
+        viewBox="-20 0 70 154"
+        className="svg-icon svg-icon-rank-1 top-10-rank"
+      >
+        <path
+          stroke="#595959"
+          strokeWidth="4"
+          d="M35.377 152H72V2.538L2 19.362v30.341l33.377-8.459V152z"
+        ></path>
+      </svg>
+    ),
   },
 } as Meta<CardTopTenProps>;
 

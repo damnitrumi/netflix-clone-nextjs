@@ -21,6 +21,7 @@ export type CardTopTenProps = {
   voteAverage: number;
   overview: string;
   similar: MovieVideoMapped[] | TvShowsVideoMapped[] | string;
+  svg: React.ReactNode;
 };
 
 export const CardTopTen = ({
@@ -32,6 +33,7 @@ export const CardTopTen = ({
   voteAverage,
   overview,
   similar,
+  svg,
 }: CardTopTenProps) => {
   const [visible, setVisible] = useState(false);
 
@@ -76,7 +78,10 @@ export const CardTopTen = ({
         setVisible(false);
       }}
     >
-      <Styled.PosterContainer poster={posterUrl} />
+      <Styled.SvgContainer>{svg}</Styled.SvgContainer>
+      <Styled.PosterContainer>
+        <img src={posterUrl} alt="Poster" />
+      </Styled.PosterContainer>
       <Styled.Modal>
         <Styled.VideoContainer posterHorizontal={hasImg ? imgUrl : noImgUrl}>
           {visible && hasVideo && (

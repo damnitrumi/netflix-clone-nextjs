@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
     position: relative;
     border-radius: 2px;
     display: flex;
-    background-color: blue;
 
     &:hover ${Modal}{
       visibility: visible;
@@ -58,6 +57,7 @@ export const VideoContainer = styled.div<
     }
   `}
 `;
+
 export const DataContainer = styled.div`
   ${({ theme }) => css`
     transition: all 300ms ease-in;
@@ -164,12 +164,22 @@ export const Info = styled.div`
   `}
 `;
 
-export const PosterContainer = styled.div<Pick<CardTopTenProps, "poster">>`
-  ${({ poster }) => css`
-    flex: 0 1 50%;
-    margin-left: auto;
-    background-image: url(${poster});
-    background-size: cover;
+export const SvgContainer = styled.div`
+  ${() => css`
+  flex: 0 1 50%;
+  padding-left: 14%;
+  `}
+`;
 
+export const PosterContainer = styled.div`
+  ${() => css`
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    right: 0;
+    img{
+      width: 100%;
+      height: 100%;
+    }
   `}
 `;
