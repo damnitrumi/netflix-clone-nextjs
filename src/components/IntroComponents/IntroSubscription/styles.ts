@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import { Title as Heading } from "../Heading/styles";
-import { Wrapper as Button } from "../Button/styles";
+import { Title as Heading } from "../../Heading/styles";
+import { Wrapper as Button } from "../../Button/styles";
 import { Wrapper as IntroContainer } from "../IntroContainer/styles";
 
 export const SubsIntroContainer = styled(IntroContainer)`

@@ -6,9 +6,10 @@ import { MoviesComplete } from "utils/map-movies-similar";
 import { TvShowsComplete } from "utils/map-tv-shows-similar";
 import { useModalContext } from "components/contexts/ModalContext";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, FormEvent } from "react";
 import { Heading } from "components/Heading";
 import { Text } from "components/Text";
+import { useRouter } from "next/router";
 
 export type HeroProps = {
   dataArray: MoviesComplete[] | TvShowsComplete[];
@@ -20,6 +21,7 @@ export type HeroPassingProps = {
 
 export const Hero = ({ dataArray }: HeroProps) => {
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const router = useRouter();
 
   useEffect(() => {
     const selectedIndex = Math.floor(Math.random() * 18);
@@ -37,6 +39,7 @@ export const Hero = ({ dataArray }: HeroProps) => {
     posterHorizontal,
     videoUrl,
     voteAverage,
+    type,
     overview,
     similar,
   } = dataArray[selectedIndex];
@@ -64,6 +67,15 @@ export const Hero = ({ dataArray }: HeroProps) => {
     handleOpenBiggerModalClick();
   };
 
+  const handleWatchClick = (e: FormEvent<HTMLElement>) => {
+    e.preventDefault();
+
+    router.push({
+      pathname: `watch/${id}`,
+      query: { trackId: id, type: type },
+    });
+  };
+
   return (
     <Styled.Wrapper posterHorizontal={imgUrl}>
       <Styled.MovieDetails>
@@ -73,7 +85,7 @@ export const Hero = ({ dataArray }: HeroProps) => {
       <Styled.Options>
         <Styled.LinkOption>
           <Link href="/" legacyBehavior passHref>
-            <a>
+            <a onClick={handleWatchClick}>
               <Play size="25px" />
               Assistir
             </a>

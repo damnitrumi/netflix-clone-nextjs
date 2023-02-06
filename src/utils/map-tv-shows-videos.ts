@@ -24,6 +24,7 @@ export type TvShowsVideoMapped = {
   poster: string;
   posterHorizontal: string;
   voteAverage: number;
+  type: string;
   videoUrl: string;
 };
 

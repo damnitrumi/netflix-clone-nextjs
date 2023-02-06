@@ -29,6 +29,7 @@ export type TrendingMapped = {
   poster: string;
   posterHorizontal: string;
   voteAverage: number;
+  type: string;
   videoUrl: string;
   similar: MovieVideoMapped[] | TvShowsVideoMapped[];
 };
@@ -59,6 +60,7 @@ export const mapTrending = async (
         poster,
         posterHorizontal,
         voteAverage,
+        type: media_type,
         videoUrl,
         similar,
       };

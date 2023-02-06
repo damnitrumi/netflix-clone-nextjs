@@ -1,4 +1,3 @@
-import { LinkBtn } from "components/LinkBtn";
 import * as Styled from "./styles";
 import Link from "next/link";
 
@@ -21,9 +20,7 @@ export const IntroHeader = () => {
             <option value="en">English</option>
           </select>
         </Styled.SelectContainer>
-        <Link href="/" passHref>
-          <LinkBtn>Entrar</LinkBtn>
-        </Link>
+        <Link href="/login">Entrar</Link>
       </Styled.OptionsContainer>
     </Styled.Wrapper>
   );

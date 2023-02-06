@@ -22,6 +22,7 @@ export type MovieMapped = {
   poster: string;
   posterHorizontal: string;
   voteAverage: number;
+  type: string;
 };
 
 export const mapMovies = (moviesJson: MovieRaw[]): MovieMapped[] => {
@@ -41,6 +42,7 @@ export const mapMovies = (moviesJson: MovieRaw[]): MovieMapped[] => {
       poster,
       posterHorizontal,
       voteAverage,
+      type: "movie",
     };
   });
 

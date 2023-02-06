@@ -18,6 +18,7 @@ export type ModalOpenedProps = {
   posterHorizontal: string;
   videoUrl: string;
   score: string;
+  type: string;
   overview: string;
   similar: MovieVideoMapped[] | TvShowsVideoMapped[];
 };
@@ -29,8 +30,16 @@ export const ModalOpened = () => {
 
   if (!modalData) return null;
 
-  const { id, title, posterHorizontal, videoUrl, score, overview, similar } =
-    modalData;
+  const {
+    id,
+    title,
+    posterHorizontal,
+    videoUrl,
+    score,
+    type,
+    overview,
+    similar,
+  } = modalData;
 
   const hasVideo = !videoUrl.includes("no-url");
 
@@ -38,8 +47,8 @@ export const ModalOpened = () => {
     e.preventDefault();
 
     router.push({
-      pathname: "/watch/",
-      query: { trackId: id },
+      pathname: `watch/${id}`,
+      query: { trackId: id, type: type },
     });
   };
 
@@ -99,7 +108,7 @@ export const ModalOpened = () => {
               Títulos semelhantes
             </Heading>
             <Styled.YouMayAlsoLike>
-              {similar.map((el) => {
+              {similar.map((el: MovieVideoMapped | TvShowsVideoMapped) => {
                 return (
                   <YouMayAlsoLikeModal
                     key={el.id}
@@ -107,6 +116,7 @@ export const ModalOpened = () => {
                     title={el.title}
                     voteAverage={el.voteAverage}
                     overview={el.overview}
+                    type={el.type}
                     posterHorizontal={el.posterHorizontal}
                   />
                 );

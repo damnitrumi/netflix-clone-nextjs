@@ -4,7 +4,7 @@ import * as Styled from "./styles";
 import { LoginFooter } from "components/LoginComponents/LoginFooter";
 import { LoginBanner } from "components/LoginComponents/LoginBanner";
 
-export const Login = () => {
+export const LoginPage = () => {
   return (
     <Styled.Wrapper>
       <LoginHeader />

@@ -9,6 +9,7 @@ export type MoviesComplete = {
   poster: string;
   posterHorizontal: string;
   voteAverage: number;
+  type: string;
   videoUrl: string;
   similar: MovieVideoMapped[] | null;
 };

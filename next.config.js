@@ -8,7 +8,7 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  trailingSlash: true,
+  trailingSlash: false,
 };
 
 module.exports = nextConfig;

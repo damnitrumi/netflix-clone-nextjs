@@ -23,6 +23,7 @@ export type MovieVideoMapped = {
   poster: string;
   posterHorizontal: string;
   voteAverage: number;
+  type: string;
   videoUrl: string;
 };
 

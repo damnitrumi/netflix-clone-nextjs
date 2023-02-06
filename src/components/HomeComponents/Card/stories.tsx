@@ -10,6 +10,7 @@ export default {
     posterHorizontal: "/r9PkFnRUIthgBp2JZZzD380MWZy.jpg",
     videoUrl: "RqrXhwS33yc",
     voteAverage: 1.589,
+    type: "movie",
     overview:
       "Puss in Boots discovers that his passion for adventure has taken its toll: He has burned through eight of his nine lives, leaving him with only one life left. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.",
     similar: [

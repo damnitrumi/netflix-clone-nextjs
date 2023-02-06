@@ -9,6 +9,7 @@ export type TvShowsComplete = {
   poster: string;
   posterHorizontal: string;
   voteAverage: number;
+  type: string;
   videoUrl: string;
   similar: TvShowsVideoMapped[] | null;
 };

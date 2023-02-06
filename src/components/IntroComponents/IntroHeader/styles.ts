@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { Wrapper as LinkBtn } from "../LinkBtn/styles";
+import { Wrapper as LinkBtn } from "../../LinkBtn/styles";
 
 export const Wrapper = styled.header`
   ${({ theme }) => css`
@@ -58,6 +58,18 @@ export const OptionsContainer = styled.div`
     display: flex;
     align-items: flex-start;
     gap: 30px;
+
+    > a{
+      color: ${theme.colors.netflixTextColor};
+      background-color: ${theme.colors.netflixMainColor};
+      &:hover{
+        background-color: ${theme.colors.netflixHoverColor};
+      }
+      border: none;
+      padding: 0.7rem 1.7rem;
+      border-radius: 3px;
+      text-decoration: none;
+    }
 
     @media ${theme.media.ltaSmall}{
       gap: 12px;

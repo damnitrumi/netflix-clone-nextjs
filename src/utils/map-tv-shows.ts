@@ -22,6 +22,7 @@ export type TvShowMapped = {
   poster: string;
   posterHorizontal: string;
   voteAverage: number;
+  type: string;
 };
 
 export const mapTvShows = (tvShowsJson: TvShowRaw[]): TvShowMapped[] => {
@@ -42,6 +43,7 @@ export const mapTvShows = (tvShowsJson: TvShowRaw[]): TvShowMapped[] => {
       poster,
       posterHorizontal,
       voteAverage,
+      type: "tv",
     };
   });
   return popularTvShowsFiltered;

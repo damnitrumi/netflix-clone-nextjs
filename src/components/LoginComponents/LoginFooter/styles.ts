@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { Wrapper as Text } from "../../Text/styles";
-import { Wrapper as IntroContainer } from "../../IntroContainer/styles";
-import { SelectContainer } from "../../IntroHeader/styles";
+import { Wrapper as IntroContainer } from "../../IntroComponents/IntroContainer/styles";
+import { SelectContainer } from "../../IntroComponents/IntroHeader/styles";
 
 export const IntroContainerFooter = styled(IntroContainer)`
   ${() => css`

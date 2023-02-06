@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 
 import { Heading } from "components/Heading";
 import { useModalContext } from "components/contexts/ModalContext";
@@ -11,6 +11,7 @@ import Link from "next/link";
 
 import { MovieVideoMapped } from "utils/map-movies-videos";
 import { TvShowsVideoMapped } from "utils/map-tv-shows-videos";
+import { useRouter } from "next/router";
 
 export type CardProps = {
   id: number;
@@ -18,6 +19,7 @@ export type CardProps = {
   posterHorizontal: string;
   videoUrl: string;
   voteAverage: number;
+  type: string;
   overview: string;
   similar: MovieVideoMapped[] | TvShowsVideoMapped[] | string;
 };
@@ -28,10 +30,12 @@ export const Card = ({
   posterHorizontal,
   videoUrl,
   voteAverage,
+  type,
   overview,
   similar,
 }: CardProps) => {
   const [visible, setVisible] = useState(false);
+  const router = useRouter();
 
   const [, , handleModalData, handleOpenBiggerModalClick] = useModalContext();
 
@@ -53,6 +57,7 @@ export const Card = ({
     posterHorizontal: hasImg ? imgUrl : noImgUrl,
     videoUrl: videoLink,
     score,
+    type,
     overview,
     similar,
   };
@@ -61,6 +66,15 @@ export const Card = ({
     setVisible(false);
     handleModalData(modalData);
     handleOpenBiggerModalClick();
+  };
+
+  const handleWatchClick = (e: FormEvent<HTMLElement>) => {
+    e.preventDefault();
+
+    router.push({
+      pathname: `watch/${id}`,
+      query: { trackId: id, type: type },
+    });
   };
 
   return (
@@ -82,8 +96,8 @@ export const Card = ({
         <Styled.DataContainer>
           <Heading size="1.6rem">{title}</Heading>
           <Styled.Controls>
-            <Link href="/" legacyBehavior>
-              <a>
+            <Link href="/" legacyBehavior passHref>
+              <a onClick={handleWatchClick}>
                 <PlayCircleFill size="40px" />
               </a>
             </Link>

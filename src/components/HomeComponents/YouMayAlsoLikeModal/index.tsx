@@ -11,6 +11,7 @@ export type YouMayAlsoLikeModalProps = {
   posterHorizontal: string;
   overview: string;
   voteAverage: number;
+  type: string;
 };
 
 export const YouMayAlsoLikeModal = ({
@@ -19,6 +20,7 @@ export const YouMayAlsoLikeModal = ({
   posterHorizontal,
   overview,
   voteAverage,
+  type,
 }: YouMayAlsoLikeModalProps) => {
   const router = useRouter();
 
@@ -35,8 +37,8 @@ export const YouMayAlsoLikeModal = ({
     e.preventDefault();
 
     router.push({
-      pathname: "/watch/",
-      query: { trackId: id },
+      pathname: `/watch/${id}`,
+      query: { trackId: id, type: type },
     });
   };
 

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { Title as Heading } from "../Heading/styles";
+import { Title as Heading } from "../../Heading/styles";
 import { SubsForm } from "../IntroSubscription/styles";
 import { Wrapper as IntroContainer } from "../IntroContainer/styles";
 

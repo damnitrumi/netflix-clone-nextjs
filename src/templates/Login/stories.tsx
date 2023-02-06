@@ -1,15 +1,15 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
-import { Login } from ".";
+import { LoginPage } from ".";
 
 export default {
-  title: "Login",
-  component: Login,
+  title: "LoginPage",
+  component: LoginPage,
 } as Meta;
 
 export const Template: Story = (args) => {
   return (
     <div>
-      <Login {...args} />
+      <LoginPage {...args} />
     </div>
   );
 };

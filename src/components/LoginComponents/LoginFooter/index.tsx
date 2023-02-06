@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import { Text } from "components/Text";
 import * as Styled from "./styles";
-import * as StyledHeader from "../../IntroHeader/styles";
+import * as StyledHeader from "../../IntroComponents/IntroHeader/styles";
 
 export const LoginFooter = () => {
   return (

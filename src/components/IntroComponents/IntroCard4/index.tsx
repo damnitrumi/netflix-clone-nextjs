@@ -1,5 +1,5 @@
 import { Heading } from "components/Heading";
-import { IntroContainer } from "components/IntroContainer";
+import { IntroContainer } from "components/IntroComponents/IntroContainer";
 import * as Styled from "./styles";
 
 export const IntroCard4 = () => {

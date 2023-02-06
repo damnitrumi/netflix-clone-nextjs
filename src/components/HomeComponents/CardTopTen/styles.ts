@@ -5,7 +5,7 @@ import { Title as Heading } from "../../Heading/styles";
 export const Wrapper = styled.div`
   ${() => css`
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 1 / 0.7;
     background-size: cover;
     position: relative;
     border-radius: 2px;
