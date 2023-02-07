@@ -11,6 +11,7 @@ import { User, HelpCircle } from "@styled-icons/boxicons-regular";
 import { Profile } from "@styled-icons/icomoon";
 import { useState, useRef, useEffect } from "react";
 import { HomeHeaderResponsive } from "../HomeHeaderResponsive";
+import { signOut } from "next-auth/react";
 
 export type HomeInputProps = {
   focused: boolean;
@@ -197,9 +198,7 @@ export const HomeHeader = () => {
                 </Link>
               </li>
               <li>
-                <button onClick={() => console.log("Função de SignOut aqui")}>
-                  Sair da Netflix
-                </button>
+                <button onClick={() => signOut()}>Sair da Netflix</button>
               </li>
             </Styled.DropdownRightMenu>
           </li>

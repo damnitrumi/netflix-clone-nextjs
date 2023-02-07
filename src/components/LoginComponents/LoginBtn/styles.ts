@@ -13,10 +13,17 @@ export const Wrapper = styled.button`
     font-family: Netflix-Medium;
     width: 100%;
     text-align: center;
+    position: relative;
 
     &:disabled{
       background-color: grey;
       cursor: wait;
+    }
+
+    .MuiCircularProgress-root{
+      position: absolute;
+      right: 15px;
+      color: red;
     }
   `}
 `;

@@ -1,5 +1,6 @@
 import { WatchVideo } from "components/WatchComponents/WatchVideo/Watch";
 import { GetServerSideProps } from "next";
+import { getSession } from "next-auth/react";
 import { VideoRaw } from "utils/map-movies-videos";
 
 type WatchProps = {
@@ -11,6 +12,17 @@ export default function Watch({ videoUrl }: WatchProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await getSession(ctx);
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
   const id = ctx.query.trackId;
   const type = ctx.query.type;
 

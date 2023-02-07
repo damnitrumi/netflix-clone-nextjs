@@ -19,6 +19,10 @@
     "postinstall": "npm run prepare"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.8",
     "@styled-icons/bootstrap": "^10.47.0",
     "@styled-icons/boxicons-logos": "^10.47.0",
     "@styled-icons/boxicons-regular": "^10.47.0",

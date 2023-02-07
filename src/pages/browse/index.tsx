@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import { mapMovies, MovieRaw } from "utils/map-movies";
 import { mapSimilar, MoviesComplete } from "utils/map-movies-similar";
 import { mapTrending } from "utils/map-trending";
@@ -8,6 +8,7 @@ import { mapTvShowsSimilar, TvShowsComplete } from "utils/map-tv-shows-similar";
 import { mapTvShowsVideo } from "utils/map-tv-shows-videos";
 import { mapMoviesVideo } from "utils/map-movies-videos";
 import Head from "next/head";
+import { getSession } from "next-auth/react";
 
 export type MoviesRawData = {
   page: number;
@@ -20,6 +21,7 @@ export type TvShowsRawData = {
 };
 
 type BrowserProps = {
+  session: Response;
   popularMoviesSimilar: MoviesComplete[] | TvShowsComplete[];
   topRatedMoviesSimilar: MoviesComplete[] | TvShowsComplete[];
   popularTvShowsSimilar: MoviesComplete[] | TvShowsComplete[];
@@ -30,12 +32,15 @@ type BrowserProps = {
 import { Browser } from "templates/Browser";
 
 export default function Browse({
+  session,
   popularMoviesSimilar,
   topRatedMoviesSimilar,
   popularTvShowsSimilar,
   topRatedTvShowsSimilar,
   trendingTvShowsFiltered,
 }: BrowserProps) {
+  if (!session) return <h1>Ta logado não mano</h1>;
+
   return (
     <>
       <Head>
@@ -51,23 +56,19 @@ export default function Browse({
     </>
   );
 }
-// export default function Index() {
-//   const { data: session } = useSession();
-//   console.log(session);
 
-//   if (!session) {
-//     return <p>Você não está logado</p>;
-//   }
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await getSession(ctx);
 
-//   return (
-//     <>
-//       <h1>Olá mundo</h1>
-//       <h2>{session && JSON.stringify(session)}</h2>
-//     </>
-//   );
-// }
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
 
-export const getServerSideProps: GetServerSideProps = async () => {
   //Popular Movies
   const popularMoviesUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=en-US&page=1`;
   const popularMoviesDataRaw = await fetch(popularMoviesUrl);
@@ -155,6 +156,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   // console.log(trendingTvShowsFiltered);
   return {
     props: {
+      session,
       popularMoviesSimilar,
       topRatedMoviesSimilar,
       popularTvShowsSimilar,

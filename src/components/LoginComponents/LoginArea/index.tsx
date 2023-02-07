@@ -5,6 +5,8 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { LoginBtn } from "../LoginBtn";
 import * as Styled from "./styles";
+import { useRouter } from "next/router";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export function LoginArea() {
   const [username, setUsername] = useState("");
@@ -13,6 +15,8 @@ export function LoginArea() {
   const [passwordError, setPasswordError] = useState(false);
   const [loginError, setLoginError] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,7 +28,6 @@ export function LoginArea() {
     }
 
     if (username && password) {
-      console.log("entrei no if pois tem valor");
       const response = await signIn("credentials", {
         username: username,
         password: password,
@@ -32,17 +35,16 @@ export function LoginArea() {
       });
 
       if (!response.ok) {
-        console.log("entrei no if mas não loguei pois a senha ta errada");
-
         setLoginError(true);
         setLoading(false);
         return;
       }
 
-      console.log("entrei no if e loguei");
-      console.log(response.ok);
+      router.push({
+        pathname: "/browse",
+      });
+      return;
     } else {
-      console.log("settei pelo else que não tem valores");
       setLoginError(true);
     }
 
@@ -125,7 +127,9 @@ export function LoginArea() {
             <Text>A senha deve ter entre 4 e 60 caracteres.</Text>
           )}
         </Styled.LoginInputContainer>
-        <LoginBtn disabled={loading}>Entrar</LoginBtn>
+        <LoginBtn disabled={loading}>
+          Entrar {loading && <CircularProgress size={20} />}
+        </LoginBtn>
         <Styled.OptionsContainer>
           <input type="checkbox" id="save-login" defaultChecked />
           <label htmlFor="save-login">Lembre-se de mim</label>
