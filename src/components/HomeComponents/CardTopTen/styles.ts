@@ -22,6 +22,12 @@ export const Wrapper = styled.div`
         opacity: 1;
       }
     }
+
+    @media (max-width: 650px){
+      &:hover ${Modal}{
+       width: 290px;
+      }
+    }
   `}
 `;
 

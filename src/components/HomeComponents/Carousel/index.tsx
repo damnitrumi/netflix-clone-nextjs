@@ -21,7 +21,7 @@ export const Carousel = ({ title, dataArray }: CarouselProps) => {
       <Heading size="2.2rem">{title}</Heading>
       <Styled.Container>
         <Swiper
-          slidesPerView={6}
+          slidesPerView="auto"
           spaceBetween={3}
           slidesPerGroup={6}
           loop={true}
@@ -32,6 +32,24 @@ export const Carousel = ({ title, dataArray }: CarouselProps) => {
           navigation={true}
           modules={[Pagination, Navigation]}
           className="mySwiper"
+          breakpoints={{
+            1400: {
+              slidesPerView: 6,
+              slidesPerGroup: 6,
+            },
+            1100: {
+              slidesPerView: 5,
+              slidesPerGroup: 5,
+            },
+            800: {
+              slidesPerView: 4,
+              slidesPerGroup: 4,
+            },
+            500: {
+              slidesPerView: 3,
+              slidesPerGroup: 3,
+            },
+          }}
         >
           {dataArray.map((el, i) => {
             return (

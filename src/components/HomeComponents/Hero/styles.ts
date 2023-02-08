@@ -6,6 +6,10 @@ export const EmptyWrapper = styled.div`
     max-width: 100%;
     aspect-ratio: 16 / 9;
     background-color: black;
+
+    @media (max-width: 499px){
+      display: none;
+    }
   `}
 `;
 
@@ -38,6 +42,9 @@ export const Wrapper = styled.div<HeroPassingProps>`
 
     }
 
+    @media (max-width: 499px){
+      display: none;
+    }
   `}
 `;
 
@@ -90,6 +97,28 @@ export const LinkOption = styled.div`
       &:hover:before{
         display: block;
       }
+
+      @media ${theme.media.ltaBig}{
+        font-size: 1.5rem;
+        padding: 8px 12px;
+        min-height: auto;
+        svg{
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      @media (max-width: 650px){
+      font-size: 1.2rem;
+      padding: 8px 12px;
+      min-height: auto;
+      gap: 5px;
+      svg{
+        width: 15px;
+        height: 15px;
+      }
+    }
+
     }
   `}
 `;
@@ -120,7 +149,28 @@ export const MoreInfo = styled.button`
     &:hover{
       /* background-color: rgba(255, 255, 255, 0.2); */
       background-color: rgba(0, 0, 0, 0.3);
+    }
 
+    @media ${theme.media.ltaBig}{
+      font-size: 1.5rem;
+      padding: 8px 12px;
+      min-height: auto;
+      svg{
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    @media (max-width: 650px){
+      font-size: 1.2rem;
+      padding: 8px 12px;
+      min-height: auto;
+      gap: 5px;
+
+      svg{
+        width: 15px;
+        height: 15px;
+      }
     }
   `}
 `;
@@ -129,12 +179,30 @@ export const MovieDetails = styled.div`
   ${() => css`
     position: relative;
     z-index: 1;
-    /* max-width: 35%; */
-    max-width: 532px;
+    max-width: 35%;
+    /* max-width: 532px; */
     /* padding-left: 4%; */
     pointer-events: none;
     h1{
       margin-bottom: 20px;
+    }
+
+    @media (max-width: 750px){
+      font-size: 1rem;
+      h1{
+      margin-bottom: 10px;
+    }
+
+      p{
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 650px){
+      font-size: 0.8rem;
+      p{
+        font-size: 1.2rem;
+      }
     }
   `}
 `;

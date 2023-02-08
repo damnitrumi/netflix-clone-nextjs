@@ -107,7 +107,7 @@ export const ModalOpened = () => {
             <Heading as="h2" size="2.2rem">
               Títulos semelhantes
             </Heading>
-            <Styled.YouMayAlsoLike>
+            <Styled.YouMayAlsoLikeContainer>
               {similar.map((el: MovieVideoMapped | TvShowsVideoMapped) => {
                 return (
                   <YouMayAlsoLikeModal
@@ -121,7 +121,7 @@ export const ModalOpened = () => {
                   />
                 );
               })}
-            </Styled.YouMayAlsoLike>
+            </Styled.YouMayAlsoLikeContainer>
           </Styled.YouMayAlsoLikeWrapper>
         )}
       </Styled.Modal>

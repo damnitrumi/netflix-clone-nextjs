@@ -135,6 +135,18 @@ export const LinkOption = styled.div`
         display: block;
       }
     }
+
+    @media (max-width: 600px){
+      bottom: 20%;
+      a{
+        min-height: auto;
+        font-size: 1.2rem;
+        svg{
+          width: 15px;
+          height: 15px;
+        }
+      }
+    }
   `}
 `;
 
@@ -170,11 +182,14 @@ export const YouMayAlsoLikeWrapper = styled.div`
     }
   `}
 `;
-export const YouMayAlsoLike = styled.div`
+export const YouMayAlsoLikeContainer = styled.div`
   ${() => css`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     justify-items: center;
+    @media (max-width: 600px){
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
   `}
 `;

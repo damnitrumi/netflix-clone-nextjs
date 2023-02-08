@@ -1,5 +1,6 @@
 import { Carousel } from "components/HomeComponents/Carousel";
 import { CarouselTopTen } from "components/HomeComponents/CarouselTopTen";
+import { DownloadApp } from "components/HomeComponents/DownloadApp";
 import { Hero } from "components/HomeComponents/Hero";
 import { HomeFooter } from "components/HomeComponents/HomeFooter";
 import { HomeHeader } from "components/HomeComponents/HomeHeader";
@@ -35,6 +36,7 @@ export const Browser = ({
       <Carousel title="Popular Tv Shows" dataArray={popularTvShowsSimilar} />
       <Carousel title="Top Rated Movies" dataArray={topRatedMoviesSimilar} />
       <Carousel title="Top Rated Tv Shows" dataArray={topRatedTvShowsSimilar} />
+      <DownloadApp />
       <HomeFooter />
       <ModalOpened />
     </>

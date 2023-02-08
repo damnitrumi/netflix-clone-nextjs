@@ -1,3 +1,4 @@
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import * as Styled from "./styles";
 
@@ -30,13 +31,7 @@ export const HomeHeaderResponsive = ({
           <Link href="/">Central de Ajuda</Link>
         </li>
         <li>
-          <button
-            onClick={() =>
-              console.log("Função de SignOut aqui pelo responsive")
-            }
-          >
-            Sair da Netflix
-          </button>
+          <button onClick={() => signOut()}>Sair da Netflix</button>
         </li>
       </Styled.MainOptions>
       <Styled.Categories>

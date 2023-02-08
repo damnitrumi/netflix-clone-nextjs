@@ -18,6 +18,11 @@ export const Wrapper = styled.header`
       fill: ${theme.colors.netflixMainColor};
     }
 
+    @media (max-width: 740px){
+      padding-left: 5%;
+    }
+
+
     @media (max-width: 620px){
       padding-top: 16px;
     }

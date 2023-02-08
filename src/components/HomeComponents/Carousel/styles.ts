@@ -4,17 +4,20 @@ import { Title as Heading } from "../../Heading/styles";
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-  margin-bottom: 20px;
-  position: relative;
+    margin-bottom: 20px;
+    position: relative;
 
-  &:hover{
-    z-index: 2;
-  }
+    &:hover{
+      z-index: 2;
+    }
     > ${Heading}{
         color: ${theme.colors.netflixTextColor};
         margin-bottom: 10px;
         padding-left: 4%;
       }
+    @media (max-width: 499px){
+      display: none;
+    }
   `}
 `;
 
@@ -62,6 +65,57 @@ export const Container = styled.div`
           left: initial;
           transform: translateX(0);
           right: 0;
+        }
+      }
+
+      @media (min-width: 1100px) and (max-width: 1399px){
+        .swiper-slide:nth-child(5n+1){
+          > div > div {
+            left: 0;
+            transform: translateX(0);
+          }
+        }
+
+        .swiper-slide:nth-child(5n){
+          > div > div {
+            left: initial;
+            transform: translateX(0);
+            right: 0;
+          }
+        }
+      }
+
+      @media (min-width: 800px) and (max-width: 1099px){
+        .swiper-slide:nth-child(4n+1){
+          > div > div {
+            left: 0;
+            transform: translateX(0);
+          }
+        }
+
+        .swiper-slide:nth-child(4n){
+          > div > div {
+            left: initial;
+            transform: translateX(0);
+            right: 0;
+          }
+        }
+      }
+
+      @media (min-width: 500px) and (max-width: 799px){
+        .swiper-slide:nth-child(3n+1){
+          > div > div {
+            left: 0;
+            transform: translateX(0);
+          }
+        }
+
+        .swiper-slide:nth-child(3n){
+          > div > div {
+            left: initial;
+            transform: translateX(0);
+            right: 0;
+          }
         }
       }
     }
