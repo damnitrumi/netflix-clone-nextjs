@@ -1,4 +1,4 @@
-import { MoviesRawData } from "pages";
+import { MoviesRawData } from "../pages/browse/index";
 import { mapMovies } from "./map-movies";
 import { mapMoviesVideo, MovieVideoMapped } from "./map-movies-videos";
 
