@@ -19,6 +19,7 @@ export default NextAuth({
         }
 
         try {
+          //LocalUrl
           // const userRaw = await fetch("http://localhost:1337/api/auth/local", {
           const userRaw = await fetch(
             "https://strapi-auth-netflix-production.up.railway.app/api/auth/local",
