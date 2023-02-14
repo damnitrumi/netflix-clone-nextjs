@@ -1,4 +1,4 @@
-import { TvShowsRawData } from "pages";
+import { TvShowsRawData } from "../pages/browse/index";
 import { mapTvShows } from "./map-tv-shows";
 import { mapTvShowsVideo, TvShowsVideoMapped } from "./map-tv-shows-videos";
 

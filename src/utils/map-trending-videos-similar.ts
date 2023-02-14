@@ -3,7 +3,7 @@ import { mapTvShows, TvShowRaw } from "./map-tv-shows";
 import { mapTvShowsVideo } from "./map-tv-shows-videos";
 import { mapMoviesVideo, VideoRaw } from "./map-movies-videos";
 import { TrendingRaw } from "./map-trending";
-import { MoviesRawData, TvShowsRawData } from "pages";
+import { MoviesRawData, TvShowsRawData } from "../pages/browse/index";
 
 export const mapTrendingVideosAndSimilar = async (
   el: TrendingRaw,
