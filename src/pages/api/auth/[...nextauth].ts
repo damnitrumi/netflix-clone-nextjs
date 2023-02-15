@@ -20,20 +20,16 @@ export default NextAuth({
 
         try {
           //LocalUrl
-          // const userRaw = await fetch("http://localhost:1337/api/auth/local", {
-          const userRaw = await fetch(
-            "https://strapi-auth-netflix-production.up.railway.app/api/auth/local",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                identifier: credentials.username,
-                password: credentials.password,
-              }),
+          const userRaw = await fetch("http://localhost:1337/api/auth/local", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
             },
-          );
+            body: JSON.stringify({
+              identifier: credentials.username,
+              password: credentials.password,
+            }),
+          });
 
           const userJson = await userRaw.json();
           const {

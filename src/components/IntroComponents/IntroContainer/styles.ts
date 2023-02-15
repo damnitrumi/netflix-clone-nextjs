@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
     padding: 70px 45px;
     border-bottom: ${theme.fixedMeasures.introMainBorder};
 
+
     @media ${theme.media.ltaSmall}{
       padding: 70px 26px;
     }
