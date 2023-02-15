@@ -104,7 +104,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const topRatedMoviesDataRaw = await fetch(topRatedMoviesUrl);
   const topRatedMoviesDataJson: MoviesRawData =
     await topRatedMoviesDataRaw.json();
-  const topRatedMoviesData = topRatedMoviesDataJson.results.slice(0, 18);
+  const topRatedMoviesData = topRatedMoviesDataJson.results?.slice(0, 18);
 
   const topRatedMoviesFiltered = mapMovies(topRatedMoviesData);
 
@@ -121,7 +121,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const popularTvShowsDataJson: TvShowsRawData =
     await popularTvShowsDataRaw.json();
 
-  const popularTvShowsData = popularTvShowsDataJson.results.slice(0, 18);
+  const popularTvShowsData = popularTvShowsDataJson.results?.slice(0, 18);
 
   const popularTvShowsFiltered = mapTvShows(popularTvShowsData);
 
@@ -142,7 +142,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const topRatedTvShowsDataJson: TvShowsRawData =
     await topRatedTvShowsDataRaw.json();
 
-  const topRatedTvShowsData = topRatedTvShowsDataJson.results.slice(0, 18);
+  const topRatedTvShowsData = topRatedTvShowsDataJson.results?.slice(0, 18);
 
   const topRatedTvShowsFiltered = mapTvShows(topRatedTvShowsData);
 
@@ -163,7 +163,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const trendingTvShowsDataRaw = await fetch(trendingTvShowsUrl);
   const trendingTvShowsDataJson = await trendingTvShowsDataRaw.json();
 
-  const trendingTvShowsData = trendingTvShowsDataJson.results.slice(0, 10);
+  const trendingTvShowsData = trendingTvShowsDataJson.results?.slice(0, 10);
 
   const trendingTvShowsFiltered = await mapTrending(trendingTvShowsData);
 
