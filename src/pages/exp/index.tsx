@@ -53,7 +53,7 @@ export default function Exp({
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getStaticProps: GetStaticProps = async (ctx) => {
   //Popular Movies
   const popularMoviesUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.MOVIE_DB_API_KEY}&language=en-US&page=1`;
   const popularMoviesDataRaw = await fetch(popularMoviesUrl);
