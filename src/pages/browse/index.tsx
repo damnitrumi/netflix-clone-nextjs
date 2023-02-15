@@ -89,7 +89,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const popularMoviesDataRaw = await fetch(popularMoviesUrl);
   const popularMoviesDataJson: MoviesRawData =
     await popularMoviesDataRaw.json();
-  const popularMoviesData = popularMoviesDataJson.results.slice(0, 18);
+  const popularMoviesData = popularMoviesDataJson.results?.slice(0, 18);
 
   const popularMoviesFiltered = mapMovies(popularMoviesData);
 
