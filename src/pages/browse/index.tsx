@@ -8,7 +8,9 @@ import { mapTvShowsSimilar, TvShowsComplete } from "utils/map-tv-shows-similar";
 import { mapTvShowsVideo } from "utils/map-tv-shows-videos";
 import { mapMoviesVideo } from "utils/map-movies-videos";
 import Head from "next/head";
-import { getSession } from "next-auth/react";
+import { getSession, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export type MoviesRawData = {
   page: number;
@@ -32,14 +34,27 @@ type BrowserProps = {
 import { Browser } from "templates/Browser";
 
 export default function Browse({
-  session,
+  // session,
   popularMoviesSimilar,
   topRatedMoviesSimilar,
   popularTvShowsSimilar,
   topRatedTvShowsSimilar,
   trendingTvShowsFiltered,
 }: BrowserProps) {
-  if (!session) return <h1>Ta logado não mano</h1>;
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!session) {
+      setTimeout(() => {
+        router.push("/login");
+      }, 5000);
+    }
+  }, [session, router]);
+
+  if (!session) {
+    return <h1>Ta logado não mano</h1>;
+  }
 
   return (
     <>
@@ -57,17 +72,17 @@ export default function Browse({
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const session = await getSession(ctx);
+export const getStaticProps: GetStaticProps = async () => {
+  // const session = await getSession(ctx);
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/login",
-        permanent: false,
-      },
-    };
-  }
+  // if (!session) {
+  //   return {
+  //     redirect: {
+  //       destination: "/login",
+  //       permanent: false,
+  //     },
+  //   };
+  // }
 
   //Popular Movies
   const popularMoviesUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=en-US&page=1`;
@@ -156,7 +171,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   // console.log(trendingTvShowsFiltered);
   return {
     props: {
-      session,
+      // session,
       popularMoviesSimilar,
       topRatedMoviesSimilar,
       popularTvShowsSimilar,

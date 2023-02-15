@@ -198,7 +198,13 @@ export const HomeHeader = () => {
                 </Link>
               </li>
               <li>
-                <button onClick={() => signOut()}>Sair da Netflix</button>
+                <button
+                  onClick={() =>
+                    signOut({ callbackUrl: "http://localhost:3000/login" })
+                  }
+                >
+                  Sair da Netflix
+                </button>
               </li>
             </Styled.DropdownRightMenu>
           </li>
