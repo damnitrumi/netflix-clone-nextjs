@@ -14,7 +14,7 @@ export const mapTrendingVideosAndSimilar = async (
   const videosDataRaw = await fetch(videosUrl);
   const videosDataJson: VideoRaw = await videosDataRaw.json();
 
-  const videoTrailer = videosDataJson.results.filter(
+  const videoTrailer = videosDataJson.results?.filter(
     (el) => el.type == "Trailer",
   )[0];
 
@@ -26,7 +26,7 @@ export const mapTrendingVideosAndSimilar = async (
   const similarDataJson: MoviesRawData | TvShowsRawData =
     await similarDataRaw.json();
 
-  const similarDataFiltered = similarDataJson.results.slice(0, 6);
+  const similarDataFiltered = similarDataJson.results?.slice(0, 6);
 
   let similarData;
 

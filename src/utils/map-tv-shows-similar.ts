@@ -18,7 +18,7 @@ export const mapTvShowsSimilar = async (
   tvShowsWithVideos: TvShowsVideoMapped[],
 ): Promise<TvShowsComplete[]> => {
   const similarDataWithoutVideos = await Promise.all(
-    tvShowsWithVideos.map(async (el) => {
+    tvShowsWithVideos?.map(async (el) => {
       const similarUrl = `https://api.themoviedb.org/3/tv/${el.id}/similar?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=en-US&page=1`;
 
       const similarDataRaw = await fetch(similarUrl);
@@ -31,7 +31,7 @@ export const mapTvShowsSimilar = async (
         };
       }
 
-      const similarDataFiltered = similarDataJson.results.slice(0, 6);
+      const similarDataFiltered = similarDataJson.results?.slice(0, 6);
       const similarData = mapTvShows(similarDataFiltered);
       const similarDataWithVideos = await mapTvShowsVideo(similarData);
 

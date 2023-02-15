@@ -38,7 +38,7 @@ export const mapTrending = async (
   trendingJson: TrendingRaw[],
 ): Promise<TrendingMapped[]> => {
   const trendingFiltered = await Promise.all(
-    trendingJson.map(async (el) => {
+    trendingJson?.map(async (el) => {
       const {
         id,
         overview,
