@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { GetServerSideProps } from "next";
-import { useSession } from "next-auth/react";
 import { LoginPage } from "templates/Login";
 import { mapMovies, MovieRaw } from "utils/map-movies";
 import { mapSimilar, MoviesComplete } from "utils/map-movies-similar";
