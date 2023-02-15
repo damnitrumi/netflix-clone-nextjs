@@ -58,6 +58,7 @@ export const Hero = ({ dataArray }: HeroProps) => {
     posterHorizontal: imgUrl,
     videoUrl: videoLinkModal,
     score,
+    type,
     overview,
     similar,
   };

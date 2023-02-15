@@ -26,7 +26,7 @@ export type TvShowMapped = {
 };
 
 export const mapTvShows = (tvShowsJson: TvShowRaw[]): TvShowMapped[] => {
-  const popularTvShowsFiltered = tvShowsJson?.map((el) => {
+  const popularTvShowsFiltered = tvShowsJson.map((el) => {
     const {
       id,
       name: title,

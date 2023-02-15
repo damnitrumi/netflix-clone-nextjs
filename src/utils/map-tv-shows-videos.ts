@@ -33,12 +33,12 @@ export const mapTvShowsVideo = async (
 ): Promise<TvShowsVideoMapped[]> => {
   const tvShowsWithVideos = await Promise.all(
     tvShows?.map(async (el) => {
-      const videosUrl = `https://api.themoviedb.org/3/tv/${el.id}/videos?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=en-US`;
+      const videosUrl = `https://api.themoviedb.org/3/tv/${el.id}/videos?api_key=${process.env.MOVIE_DB_API_KEY}&language=en-US`;
 
       const videosDataRaw = await fetch(videosUrl);
       const videosDataJson: VideoRaw = await videosDataRaw.json();
 
-      const videoTrailer = videosDataJson.results?.filter(
+      const videoTrailer = videosDataJson.results.filter(
         (el) => el.type == "Trailer",
       )[0];
 

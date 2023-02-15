@@ -26,7 +26,7 @@ export type MovieMapped = {
 };
 
 export const mapMovies = (moviesJson: MovieRaw[]): MovieMapped[] => {
-  const popularMoviesFiltered = moviesJson?.map((el) => {
+  const popularMoviesFiltered = moviesJson.map((el) => {
     const {
       id,
       title,

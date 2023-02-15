@@ -10,7 +10,7 @@ export const WatchVideo = ({ videoUrl }: WatchVideoProps) => {
   // const videoLink = `http://www.youtube-nocookie.com/embed/${videoUrl}?autoplay=1&mute=1`;
   const videoLink = hasVideo
     ? `http://www.youtube-nocookie.com/embed/${videoUrl}?autoplay=1&mute=1`
-    : "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    : "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1";
 
   return (
     <Styled.Wrapper>
