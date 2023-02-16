@@ -1,3 +1,17 @@
+Esse projeto seria basicamente uma recriação das páginas e funções principais da Netflix, como a página inicial, a de login, a home de filmes e a página de assistir os filmes em sí.
+O projeto foi concluído mas devido ao tempo limite de request da Vercel, não foi possível dar deploy da Home, visto que as requisições das API's eram um pouco demoradas e a build usando Static Props por algum motivo não foram feitas na Vercel também, localmente não tive problemas.
+Então no lugar de dar deploy na aplicação pela metade, vou fazer uma versão depois com informações hard coded e todas páginas sendo estáticas, assim dou deploy e será possível ver como era a ideia principal.
+
+Essa aplicação possui sistema de login (Next Auth) com validação de formulário, fazendo a requisição de autorização na API feita com Strapi.
+Os filmes e séries, tanto como imagens e vídeos dos mesmos, são adquiridas ao consumir a API do The Movie Database.
+Os modais da página, assim como na netflix, ao colocar o mouse em cima(Hover), abre um modal maior e executa um video relacionado ao filme/série.
+Ao abrir o modal referente a cada filme ao clicar em "Mais Informações", aparece as informações do filme como Descrição, Relevância e afins, assim como filmes e séries similares.
+Tanto os filmes/séries do modal, quanto os similares, são todos disponíveis ao clique, executando assim um vídeo sobre o mesmo (Coloquei pra executar um video referente ao filme/série para simular a experiência da Netflix de assistir a um filme).
+
+No header, do lado superior direito, ao clicar em "Sair da Netflix", executa a função de Sign Out com Next Auth.
+
+Em breve colocarei aqui o link direcionando a versão estática.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

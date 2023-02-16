@@ -1,4 +1,4 @@
-import { WatchVideo } from "components/WatchComponents/WatchVideo/Watch";
+import { WatchVideo } from "components/WatchComponents/WatchVideo/WatchVideo";
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
 import { VideoRaw } from "utils/map-movies-videos";

@@ -99,7 +99,6 @@ export const LoginInputContainer = styled.div`
   > ${LoginInput}:focus + label{
     transform: translateY(0);
     top: 6px;
-    /* left: 20px; */
     font-family: Netflix-Medium;
     font-size: 1.1rem;
   }
@@ -107,7 +106,6 @@ export const LoginInputContainer = styled.div`
   label.has-data{
     transform: translateY(0);
     top: 6px;
-    /* left: 20px; */
     font-family: Netflix-Medium;
     font-size: 1.1rem;
   }

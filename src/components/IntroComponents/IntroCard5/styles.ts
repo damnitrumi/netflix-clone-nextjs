@@ -5,7 +5,6 @@ import { Wrapper as IntroContainer } from "../IntroContainer/styles";
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    /* max-width: 815px; */
     text-align: center;
     margin: 0 auto;
     padding: 0 106px;

@@ -5,6 +5,7 @@ import { Wrapper as IntroContainer } from "../IntroContainer/styles";
 
 export const SubsIntroContainer = styled(IntroContainer)`
   ${({ theme }) => css`
+    background-color: transparent;
     @media ${theme.media.ltaSmall}{
       padding: 70px 26px;
     }

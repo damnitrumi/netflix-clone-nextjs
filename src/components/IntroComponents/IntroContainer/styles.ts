@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   ${({ theme }) => css`
     padding: 70px 45px;
     border-bottom: ${theme.fixedMeasures.introMainBorder};
+    background-color: black;
 
 
     @media ${theme.media.ltaSmall}{
@@ -15,9 +16,5 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   ${() => css`
-    /* margin: 0 auto; */
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
   `}
 `;

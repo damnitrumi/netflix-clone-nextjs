@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { AnswerProps } from ".";
-import { Wrapper as Button } from "../Button/styles";
-import { Wrapper as Text } from "../Text/styles";
+import { Wrapper as Button } from "../../Button/styles";
+import { Wrapper as Text } from "../../Text/styles";
 
 export const Wrapper = styled.ul`
   ${({ theme }) => css`

@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import { Wrapper as LinkBtn } from "../../LinkBtn/styles";
 
 export const Wrapper = styled.header`
   ${({ theme }) => css`
@@ -17,8 +16,6 @@ export const Wrapper = styled.header`
     justify-content: space-between;
     align-items: flex-start;
     margin: 0 56px;
-    /* max-width: 1471px;
-    margin: 0 auto; */
     margin-bottom: 102px;
 
     @media ${theme.media.ltaLarge}{
@@ -56,7 +53,6 @@ export const Wrapper = styled.header`
 export const OptionsContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
-    align-items: flex-start;
     gap: 30px;
 
     > a{
@@ -73,10 +69,7 @@ export const OptionsContainer = styled.div`
 
     @media ${theme.media.ltaSmall}{
       gap: 12px;
-      ${LinkBtn}{
-        padding: 0.45rem .85rem;
-        font-size: 1.4rem;
-      }
+
     }
   `}
 `;
@@ -133,26 +126,21 @@ export const SelectContainer = styled.div`
       font-size: 1.4rem;
       line-height: 20px;
       font-family: Netflix-Medium;
-      /* -moz-appearance: none;
-      -webkit-appearance: none; */
     }
-    /* select::-ms-expand{
-      display: none;
-    } */
 
     @media ${theme.media.ltaSmall}{
       select{
-        padding: 0.3rem 2.15rem;
+        padding: 0.7rem 2.15rem;
       }
 
       &::before{
         left: 3px;
-        top: 4px;
+        top: 8px;
       }
 
       &::after{
         right: 7px;
-        top: 3px;
+        top: 7px;
       }
 
     }

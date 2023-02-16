@@ -1,5 +1,5 @@
 import { Button } from "components/Button";
-import { FrequentlyAsked } from "components/FrequentlyAsked";
+import { FrequentlyAsked } from "components/IntroComponents/FrequentlyAsked";
 import { Heading } from "components/Heading";
 import * as Styled from "./styles";
 import * as StyledSubs from "../IntroSubscription/styles";
