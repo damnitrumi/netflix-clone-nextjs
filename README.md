@@ -10,7 +10,36 @@ Tanto os filmes/séries do modal, quanto os similares, são todos disponíveis a
 
 No header, do lado superior direito, ao clicar em "Sair da Netflix", executa a função de Sign Out com Next Auth.
 
+Tecnologias utilizadas:
+--Next.Js
+--Next Auth
+--Styled Components
+--Swiper JS
+
 Em breve colocarei aqui o link direcionando a versão estática.
+
+-------------------------------------------------------------------
+
+This project would be basically a remake of Netflix's pages and main functions, but due to some Vercel errors and Vercel requests time, i wasn't able to deploy.
+In the future i will make a hard coded version of this project, just to show how it would look like.
+
+This app has a login system with Next Auth, form validation, making a call to an API backend made with Strapi.
+I used The Movie Database's API to get the data with movies and shows.
+The modal boxes, just like netflix's, has hover and click effects, for example when hovering it plays a video related to the movie/show.
+When you click "Assistir" it opens a new page where you can watch a youtube video related to the movie/show.
+When you click "Mais informações" it opens a bigger modal box, that contains info about the movie/show selected and also shows similar movies/shows(You can click on them too).
+
+In the header, in the upper right, when you click "Sair da Netflix", it calls Next Auth callback function Sign Out.
+
+Built with:
+--Next.Js
+--Next Auth
+--Styled Components
+--Swiper JS
+
+Soon i will put here the link redirecting to the static version of this project.
+
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
