@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { GetServerSideProps, GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { mapMovies, MovieRaw } from "utils/map-movies";
 import { mapSimilar, MoviesComplete } from "utils/map-movies-similar";
 import { mapTrending } from "utils/map-trending";
@@ -7,9 +6,9 @@ import { mapTvShows, TvShowRaw } from "utils/map-tv-shows";
 import { mapTvShowsSimilar, TvShowsComplete } from "utils/map-tv-shows-similar";
 import { mapTvShowsVideo } from "utils/map-tv-shows-videos";
 import { mapMoviesVideo } from "utils/map-movies-videos";
-import Head from "next/head";
 import { getSession } from "next-auth/react";
 import { Browser } from "templates/Browser";
+import Head from "next/head";
 
 export type MoviesRawData = {
   page: number;
@@ -22,7 +21,6 @@ export type TvShowsRawData = {
 };
 
 type BrowserProps = {
-  session: Response;
   popularMoviesSimilar: MoviesComplete[] | TvShowsComplete[];
   topRatedMoviesSimilar: MoviesComplete[] | TvShowsComplete[];
   popularTvShowsSimilar: MoviesComplete[] | TvShowsComplete[];
@@ -31,15 +29,12 @@ type BrowserProps = {
 };
 
 export default function Browse({
-  session,
   popularMoviesSimilar,
   topRatedMoviesSimilar,
   popularTvShowsSimilar,
   topRatedTvShowsSimilar,
   trendingTvShowsFiltered,
 }: BrowserProps) {
-  if (!session) return <h1>Ta logado não mano</h1>;
-
   return (
     <>
       <Head>
@@ -80,8 +75,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const popularMoviesWithVideos = await mapMoviesVideo(popularMoviesFiltered);
 
   const popularMoviesSimilar = await mapSimilar(popularMoviesWithVideos);
-  // console.log("Popular Movies");
-  // console.log(popularMoviesSimilar);
 
   //Top Rated Movies
   const topRatedMoviesUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.MOVIE_DB_API_KEY}&language=en-US&page=1`;
@@ -95,8 +88,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const topRatedMoviesWithVideos = await mapMoviesVideo(topRatedMoviesFiltered);
 
   const topRatedMoviesSimilar = await mapSimilar(topRatedMoviesWithVideos);
-  // console.log("Top Rated Movies");
-  // console.log(topRatedMoviesSimilar);
 
   //Popular Tv Shows
   const popularTvShowsUrl = `
@@ -116,8 +107,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const popularTvShowsSimilar = await mapTvShowsSimilar(
     popularTvShowsWithVideos,
   );
-  // console.log("Popular Tv Shows");
-  // console.log(popularTvShowsSimilar);
 
   //Top Rated Tv Shows
   const topRatedTvShowsUrl = `
@@ -137,8 +126,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const topRatedTvShowsSimilar = await mapTvShowsSimilar(
     topRatedTvShowsWithVideos,
   );
-  // console.log("Top Rated Tv Shows");
-  // console.log(topRatedTvShowsSimilar);
 
   //Trending
 
@@ -151,8 +138,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   const trendingTvShowsFiltered = await mapTrending(trendingTvShowsData);
 
-  // console.log("Trending");
-  // console.log(trendingTvShowsFiltered);
   return {
     props: {
       session,
@@ -164,5 +149,3 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     },
   };
 };
-
-//Descomentar o useEffect e remover o no unused vars no inicio do file

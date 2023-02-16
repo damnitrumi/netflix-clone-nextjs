@@ -12,7 +12,6 @@ export const IntroContainerFooter = styled(IntroContainer)`
     }
 
     @media (max-width: 750px){
-      /* padding: 70px 45px 25px 50px; */
       padding: 70px 4% 25px ;
     }
 

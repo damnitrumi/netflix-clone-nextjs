@@ -2,13 +2,21 @@ import { WatchVideo } from "components/WatchComponents/WatchVideo/Watch";
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
 import { VideoRaw } from "utils/map-movies-videos";
+import Head from "next/head";
 
 type WatchProps = {
   videoUrl: string;
 };
 
 export default function Watch({ videoUrl }: WatchProps) {
-  return <WatchVideo videoUrl={videoUrl} />;
+  return (
+    <>
+      <Head>
+        <title>Netflix</title>
+      </Head>
+      <WatchVideo videoUrl={videoUrl} />;
+    </>
+  );
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {

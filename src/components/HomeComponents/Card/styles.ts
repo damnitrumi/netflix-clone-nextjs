@@ -5,7 +5,6 @@ import { Title as Heading } from "../../Heading/styles";
 export const Wrapper = styled.div<Pick<CardProps, "posterHorizontal">>`
   ${({ posterHorizontal }) => css`
     width: 100%;
-    /* max-width: 237px; */
     aspect-ratio: 16 / 9;
     background-image: url(${posterHorizontal});
     background-size: cover;
@@ -65,7 +64,6 @@ export const VideoContainer = styled.div<Pick<CardProps, "posterHorizontal">>`
 export const DataContainer = styled.div`
   ${({ theme }) => css`
     transition: all 300ms ease-in;
-    /* min-height: 0px; */
     opacity: 0;
     padding: 15px;
     display: flex;

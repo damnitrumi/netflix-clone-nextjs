@@ -1,17 +1,17 @@
 import { useState, FormEvent } from "react";
-
-import { Heading } from "components/Heading";
-import { useModalContext } from "components/contexts/ModalContext";
-import { Text } from "components/Text";
+import { useRouter } from "next/router";
 
 import * as Styled from "./styles";
+import { Heading } from "components/Heading";
+import { Text } from "components/Text";
+import Link from "next/link";
+import { useModalContext } from "components/contexts/ModalContext";
+
 import { PlayCircleFill, ChevronDown } from "@styled-icons/bootstrap";
 import { ArrowDropDown } from "@styled-icons/material";
-import Link from "next/link";
 
 import { MovieVideoMapped } from "utils/map-movies-videos";
 import { TvShowsVideoMapped } from "utils/map-tv-shows-videos";
-import { useRouter } from "next/router";
 
 export type CardProps = {
   id: number;
@@ -142,5 +142,3 @@ export const Card = ({
     </Styled.Wrapper>
   );
 };
-
-//Tirei o fragment antes do wrapper, caso dê algum bug a gente sabe o que é

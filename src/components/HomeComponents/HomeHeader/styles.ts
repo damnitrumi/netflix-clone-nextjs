@@ -364,17 +364,6 @@ export const InputContainer = styled.div<HomeInputProps>`
       border: none;
     }
 
-    /* svg{
-        fill: ${theme.colors.netflixTextColor};
-    } */
-
-    /* input{
-      outline: none;
-      border: none;
-      background-color: transparent;
-      color:  ${theme.colors.netflixTextColor};
-      font-size: 1.5rem;
-    } */
 
     @media ${theme.media.ltaBig}{
       padding: 3px;
@@ -395,7 +384,6 @@ export const SearchInput = styled.input<HomeInputProps>`
     color:  ${theme.colors.netflixTextColor};
     font-size: 1.5rem;
     overflow: hidden;
-    /* float: right; */
     transition: all 200ms ease-in;
     max-width: ${focused ? "200px" : "0px"};
     margin-left: ${focused ? "15px" : "0px"};

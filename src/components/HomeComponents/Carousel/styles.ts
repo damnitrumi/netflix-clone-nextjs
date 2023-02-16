@@ -23,7 +23,6 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   ${() => css`
-    /* margin-top: 110px; */
 
     .mySwiper{
       overflow: visible;

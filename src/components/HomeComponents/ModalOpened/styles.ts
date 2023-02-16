@@ -46,10 +46,9 @@ export const Modal = styled.div`
 `;
 
 export const VideoContainer = styled.div<Pick<CardProps, "posterHorizontal">>`
-  ${({ theme, posterHorizontal }) => css`
+  ${({ posterHorizontal }) => css`
     aspect-ratio: 16 / 9;
     background-image: url(${posterHorizontal});
-    /* background: linear-gradient(rgba(0, 0, 0, 0) 70%, ${theme.colors.netflixHomeBgColor}), url(${posterHorizontal}); */
     background-size: cover;
     position: relative;
     border-radius: 5px 5px 0 0;
@@ -57,10 +56,6 @@ export const VideoContainer = styled.div<Pick<CardProps, "posterHorizontal">>`
     overflow: hidden;
     iframe{
       position: absolute;
-      /* top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0; */
       width: 100%;
       height: 100%;
       border: none;
@@ -73,9 +68,7 @@ export const CloseOption = styled.div`
   ${({ theme }) => css`
   position: absolute;
   right: 10px;
-  /* right: 5%; */
   top: 10px;
-  /* top: 5%; */
   z-index: 1;
   button{
     display: block;
@@ -97,7 +90,6 @@ export const LinkOption = styled.div`
     position: absolute;
     bottom: 15%;
     left: 50px;
-    /* left: 3%; */
     z-index: 1;
     box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
 
@@ -121,8 +113,6 @@ export const LinkOption = styled.div`
         content: '';
         display: none;
         border-radius: 5px;
-        /* width: 100%;
-        height: 100%; */
         background-color: rgba(0, 0, 0, 0.1);
         position: absolute;
         top: 0;

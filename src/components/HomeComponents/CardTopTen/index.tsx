@@ -151,5 +151,3 @@ export const CardTopTen = ({
     </Styled.Wrapper>
   );
 };
-
-//Tirei o fragment antes do wrapper, caso dê algum bug a gente sabe o que é

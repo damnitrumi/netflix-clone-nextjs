@@ -16,7 +16,6 @@ export const EmptyWrapper = styled.div`
 export const Wrapper = styled.div<HeroPassingProps>`
   ${({ posterHorizontal }) => css`
     max-width: 100%;
-    /* height: 100vh; */
     aspect-ratio: 16 / 9;
     background-image: url(${posterHorizontal});
     background-size: cover;
@@ -59,10 +58,6 @@ export const Options = styled.div`
 
 export const LinkOption = styled.div`
   ${({ theme }) => css`
-    /* position: absolute;
-    bottom: 25%;
-    left: 4%;
-    z-index: 1; */
 
     a{
       position: relative;
@@ -84,8 +79,6 @@ export const LinkOption = styled.div`
         content: '';
         display: none;
         border-radius: 5px;
-        /* width: 100%;
-        height: 100%; */
         background-color: rgba(0, 0, 0, 0.1);
         position: absolute;
         top: 0;
@@ -138,16 +131,11 @@ export const MoreInfo = styled.button`
     padding: 8px 25px;
     font-size: 2rem;
     border-radius: 5px;
-    /* position: absolute;
-    bottom: 25%;
-    left: 14.5%;
-    z-index: 1; */
     cursor: pointer;
 
 
 
     &:hover{
-      /* background-color: rgba(255, 255, 255, 0.2); */
       background-color: rgba(0, 0, 0, 0.3);
     }
 
@@ -180,8 +168,6 @@ export const MovieDetails = styled.div`
     position: relative;
     z-index: 1;
     max-width: 35%;
-    /* max-width: 532px; */
-    /* padding-left: 4%; */
     pointer-events: none;
     h1{
       margin-bottom: 20px;

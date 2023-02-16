@@ -19,7 +19,6 @@ export default NextAuth({
         }
 
         try {
-          //LocalUrl
           const userRaw = await fetch("http://localhost:1337/api/auth/local", {
             method: "POST",
             headers: {

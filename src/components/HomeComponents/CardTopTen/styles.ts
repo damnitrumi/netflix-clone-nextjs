@@ -67,7 +67,6 @@ export const VideoContainer = styled.div<
 export const DataContainer = styled.div`
   ${({ theme }) => css`
     transition: all 300ms ease-in;
-    /* min-height: 0px; */
     opacity: 0;
     padding: 15px;
     display: flex;
