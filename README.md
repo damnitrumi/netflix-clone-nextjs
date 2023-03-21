@@ -18,6 +18,8 @@ Tecnologias utilizadas:
 
 Em breve colocarei aqui o link direcionando a versão estática.
 
+ATUALIZAÇÂO: Aqui está o link da versão estática: https://netflix-clone-light-nextjs-damnitrumi.vercel.app/
+
 -------------------------------------------------------------------
 
 This project would be basically a remake of Netflix's pages and main functions, but due to some Vercel errors and Vercel requests time, i wasn't able to deploy.
@@ -38,6 +40,8 @@ Built with:
 --Swiper JS
 
 Soon i will put here the link redirecting to the static version of this project.
+
+UPDATE: Here's the static version link: https://netflix-clone-light-nextjs-damnitrumi.vercel.app/
 
 
 

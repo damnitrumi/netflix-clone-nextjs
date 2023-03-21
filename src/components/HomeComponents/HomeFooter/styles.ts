@@ -6,6 +6,7 @@ export const IntroContainerFooter = styled(IntroContainer)`
   ${({ theme }) => css`
     border-bottom: none;
     padding: 70px 45px 25px 50px;
+    background-color: ${theme.colors.netflixHomeBgColor};
 
     @media ${theme.media.ltaBig}{
       padding: 70px 45px 25px 90px;
